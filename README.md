@@ -1,7 +1,2 @@
-# kelpoftruth.com
-
-`kelpoftruth.com`
-
----
-
-[https//kelpoftruth.com](https://kelpoftruth.com)
+GitHub Pagesだったもののリポジトリ: **[github-pages-dattamono](https://kelp-of-truth/github-pages-dattamono)**<br>
+ドメイン: **[kelpoftruth.com](https://kelpoftruth.com)**
