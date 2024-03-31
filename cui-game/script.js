@@ -422,4 +422,5 @@ function runcmd(s){
 
 
     addprmpt();
+    window.scrollTo(0,document.querySelector("#console").clientHeight);
 }
