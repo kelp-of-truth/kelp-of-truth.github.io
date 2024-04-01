@@ -3,12 +3,20 @@
     font-family: Inconsolata;
     src: url(./Inconsolata-Medium.ttf);
 }
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar{
     display: none;
+} */
+/* Firefox */
+::selection{
+    background-color: #fff;
+    color: #000;
 }
 html,body{
+    scrollbar-width: thin;
+    scrollbar-color: #494949 #F2FDFF;
     margin: 0;
     padding: 0px;
+    background-color: #000;
 }
 #console{
     background-color: #000;
