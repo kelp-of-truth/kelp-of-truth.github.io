@@ -101,6 +101,11 @@ function runcmd(s){
             case "connect":
                 document.querySelector("#wallpaper").style.backgroundColor="#00000000";
                 addtxt("<video autoplay src='./connect.mp4' style='position:fixed;left:0px;top:0px;height: 100vh;width:vw;z-index:-1;'>");
+                break;
+            case "conamicmd":
+                document.querySelector("#wallpaper").style.backgroundColor="#00000000";
+                addtxt("<video autoplay src='./5000tyouenn.mp4' style='position:fixed;left:0px;top:0px;height:100vh;width:100vw;z-index:-1;'></video>")
+                break;
         }
     }
 

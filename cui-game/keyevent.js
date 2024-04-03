@@ -26,7 +26,7 @@ document.addEventListener("keyup",()=>{
 })
 document.addEventListener("keydown",(e)=>{
 
-    console.log(e.key)
+    console.log(e.key);
 
     holdkey.push(e.keyCode);
     keycmb++;
@@ -36,11 +36,13 @@ document.addEventListener("keydown",(e)=>{
             holdkey=[];
             keycmb=false;
         }
-    }, 500);
+    }, 200);
 
-    for(let idx of keycmds){
-        if(holdkey.join(" ").match(RegExp(idx))){
-            console.log("コマンド入力成功！");
+    for(let i=0;i<keycmds.length;++i){
+        if(holdkey.join(" ").match(RegExp(keycmds[i]))){
+            if(i===0){
+                runcmd("conamicmd");
+            }
             holdkey=[];
             keycmb=false;
         }
