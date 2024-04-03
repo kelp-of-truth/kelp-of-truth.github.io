@@ -24,8 +24,6 @@ window.addEventListener("load",()=>{
         console.log("FireFoxではデバッグしてないよ♥");
     } else if(userAgent.indexOf("opera") != -1) {
         console.log("絶滅危惧種だよ君");
-    } else {
-        console.log('そんなブラウザは知らん');
     }
     addprmpt();
     setInterval(() => {
