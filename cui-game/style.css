@@ -18,8 +18,18 @@ html,body{
     padding: 0px;
     background-color: #000;
 }
-#console{
+img{
+    -webkit-user-drag: none;
+}
+#wallpaper{
     background-color: #000;
+    height: 100vw;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+#console{
     min-height: calc(100% - 10px);
     width: 100%;
     height: fit-content;
@@ -33,6 +43,7 @@ html,body{
     margin-top: 10px;
     cursor: default;
     font-size: 20px;
+    /* font-size: 80px; */
     font-family: Inconsolata;
 }
 #inputs ul{
@@ -56,6 +67,8 @@ html,body{
     position: absolute;
     height: 5px;
     width: 10px;
+    /* height: 20px;
+    width: 40px; */
     background-color: #ffffff;
     animation: 1000ms txt-crsr-anim infinite;
 }

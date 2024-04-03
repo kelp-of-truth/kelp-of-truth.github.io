@@ -3,6 +3,8 @@ let linetxt="";
 let slcting=false;
 let slctEnd;
 let blcInput=false;
+let cmdhis=[];
+let crnthis=0;
 
 document.oncontextmenu=()=>{
     if(document.getSelection().toString()===""){
@@ -17,10 +19,33 @@ document.oncontextmenu=()=>{
     }
     return false;
 }
+let holdkey=[];
+let keycmb=0;
 document.addEventListener("keyup",()=>{
     document.querySelector("#txt-cursor").classList.remove("active");
 })
 document.addEventListener("keydown",(e)=>{
+
+    console.log(e.key)
+
+    holdkey.push(e.keyCode);
+    keycmb++;
+    var mkeycmb=keycmb;
+    setTimeout(() => {
+        if(keycmb===mkeycmb){
+            holdkey=[];
+            keycmb=false;
+        }
+    }, 500);
+
+    for(let idx of keycmds){
+        if(holdkey.join(" ").match(RegExp(idx))){
+            console.log("コマンド入力成功！");
+            holdkey=[];
+            keycmb=false;
+        }
+    }
+
     document.querySelector("#txt-cursor").classList.add("active");
     if(blcInput){console.log("Inputs are rejecting now");return false;}
     if(e.keyCode===48){
@@ -359,6 +384,28 @@ document.addEventListener("keydown",(e)=>{
     if(e.keyCode===39){
         if(slct_line<linetxt.length){
             slct_line++;
+        }
+    }
+    // Arrow Top
+    if(e.keyCode===38){
+        if(crnthis>0){
+            crnthis-=1;
+            linetxt="";
+            slct_line=0;
+            for(let idx of cmdhis[crnthis]){
+                input(idx);
+            }
+        }
+    }
+    // Arrow Bottom
+    if(e.keyCode===40){
+        if(crnthis<cmdhis.length-1){
+            crnthis++;
+            linetxt="";
+            slct_line=0;
+            for(let idx of cmdhis[crnthis]){
+                input(idx);
+            }
         }
     }
 })

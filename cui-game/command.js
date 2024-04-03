@@ -5,6 +5,9 @@ function runcmd(s){
     console.log(s);
 
 
+    cmdhis.push(s);
+    crnthis=cmdhis.length;
+
 
     addtxt(`&gt;&nbsp${s}`);
     linetxt="";
@@ -28,7 +31,7 @@ function runcmd(s){
                         // setInterval(() => {
                         //     blcInput=false;
                         // }, 1000);
-                        
+
                     }
                 }else{
                     addtxt(`プロファイル${s}は選択できません`);
@@ -72,6 +75,8 @@ function runcmd(s){
                             keydown1.volume=cmd[2]/100;
                             keydown2.volume=cmd[2]/100;
                         }
+                    }else if(cmd[1]==="wallpaper"){
+                        document.querySelector("#wallpaper").style.backgroundImage=`url(${cmd[2]})`;
                     }
                 }
                 break;
@@ -90,6 +95,12 @@ function runcmd(s){
             default:
                 addtxt(`コマンド&nbsp;'${cmd[0]}'&nbsp;は実行できません`);
                 break;
+            case "boom":
+                addtxt(`<video src="./boom.mp4" autoplay></video>`);
+                break;
+            case "connect":
+                document.querySelector("#wallpaper").style.backgroundColor="#00000000";
+                addtxt("<video autoplay src='./connect.mp4' style='position:fixed;left:0px;top:0px;height: 100vh;width:vw;z-index:-1;'>");
         }
     }
 

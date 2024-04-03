@@ -2,14 +2,20 @@ const keydown1=new Audio("./sounds/keydown1.mp3");
 const keydown2=new Audio("./sounds/keydown2.mp3");
 const cnsl=document.querySelector("#inputs");
 const txtcrsr=document.querySelector("#txt-cursor");
-
+let keycmds=[
+    "38 38 40 40 37 39 37 39 65 66"
+]
 window.addEventListener("load",()=>{
     document.body.hidden=false;
-    addtxt("コマンドを入力してください...");
+    // addtxt("<h1 style='text-align:center;'><img src='./logo.png'></h1>");
+    // t: TOP b: BOTTOM l: LEFT r:RIGHT
+    
     addprmpt();
     setInterval(() => {
         txtcrsr.style.top=`${window.pageYOffset+document.querySelector(".cmd-line").getBoundingClientRect().top+20}px`;
         txtcrsr.style.left=`${30+10*slct_line}px`;
+        // txtcrsr.style.top=`${window.pageYOffset+document.querySelector(".cmd-line").getBoundingClientRect().top+80}px`;
+        // txtcrsr.style.left=`${60+40*slct_line}px`;
     }, 1);
 })
 function addtxt(s){
