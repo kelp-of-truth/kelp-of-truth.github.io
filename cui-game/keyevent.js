@@ -11,7 +11,7 @@ document.oncontextmenu=()=>{
         if(navigator.clipboard){
             navigator.clipboard.readText()
             .then(function(text){
-                paste(text)
+                paste(text);
             });
         }
     }else{

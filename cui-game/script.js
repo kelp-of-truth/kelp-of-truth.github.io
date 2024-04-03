@@ -9,7 +9,24 @@ window.addEventListener("load",()=>{
     document.body.hidden=false;
     // addtxt("<h1 style='text-align:center;'><img src='./logo.png'></h1>");
     // t: TOP b: BOTTOM l: LEFT r:RIGHT
-    
+    var userAgent = window.navigator.userAgent.toLowerCase();
+
+    if(userAgent.indexOf("msie") != -1 ||
+            userAgent.indexOf("trident") != -1) {
+        console.log("過去にすがるな");
+    } else if(userAgent.indexOf("edge") != -1) {
+        console.log("Microsoftのまわしもんか？");
+    } else if(userAgent.indexOf("chrome") != -1) {
+        console.log("模範解答");
+    } else if(userAgent.indexOf("safari") != -1) {
+        console.log("web-kitってgmだよね");
+    } else if(userAgent.indexOf("firefox") != -1) {
+        console.log("FireFoxではデバッグしてないよ♥");
+    } else if(userAgent.indexOf("opera") != -1) {
+        console.log("絶滅危惧種だよ君");
+    } else {
+        console.log('そんなブラウザは知らん');
+    }
     addprmpt();
     setInterval(() => {
         txtcrsr.style.top=`${window.pageYOffset+document.querySelector(".cmd-line").getBoundingClientRect().top+20}px`;
