@@ -30,17 +30,17 @@ window.addEventListener("load",()=>{
         document.body.addEventListener("click",(e)=>{
             document.querySelector("#mbil-input").focus();
         })
-        document.querySelector("#mbil-input").addEventListener("input",()=>{
-            if(RegExp(/^[\x20-\x7e]*$/).test(document.querySelector("#mbil-input").value)){
-                input(document.querySelector("#mbil-input").value);
-            }
-            document.querySelector("#mbil-input").value="";
-        })
-        document.querySelector("#mbil-input").addEventListener("change",()=>{
-            keydown2.currentTime=0;
-            keydown2.play();
-            runcmd(linetxt.replace(/</g,"&lt;").replace(/>/g,"&gt;"));
-        })
+        // document.querySelector("#mbil-input").addEventListener("input",()=>{
+        //     if(RegExp(/^[\x20-\x7e]*$/).test(document.querySelector("#mbil-input").value)){
+        //         input(document.querySelector("#mbil-input").value);
+        //     }
+        //     document.querySelector("#mbil-input").value="";
+        // })
+        // document.querySelector("#mbil-input").addEventListener("change",()=>{
+        //     keydown2.currentTime=0;
+        //     keydown2.play();
+        //     runcmd(linetxt.replace(/</g,"&lt;").replace(/>/g,"&gt;"));
+        // })
     // }
 
     addprmpt();
