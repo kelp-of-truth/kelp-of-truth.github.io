@@ -25,7 +25,6 @@ window.addEventListener("load",()=>{
     // } else if(userAgent.indexOf("opera") != -1) {
     //     console.log("絶滅危惧種だよ君");
     // }
-
     // if (navigator.userAgent.match(/iPhone|Android.+Mobile/)){
         document.body.addEventListener("click",(e)=>{
             document.querySelector("#mbil-input").focus();
@@ -45,6 +44,7 @@ window.addEventListener("load",()=>{
 
     addprmpt();
     setInterval(() => {
+        document.querySelector("#console").style.minHeight=`${window.innerHeight-visualViewport.offsetTop}px`;
         txtcrsr.style.top=`${window.pageYOffset+document.querySelector(".cmd-line").getBoundingClientRect().top+20}px`;
         txtcrsr.style.left=`${30+10*slct_line}px`;
         // txtcrsr.style.top=`${window.pageYOffset+document.querySelector(".cmd-line").getBoundingClientRect().top+80}px`;
