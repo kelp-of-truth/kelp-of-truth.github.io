@@ -25,9 +25,6 @@ document.addEventListener("keyup",()=>{
     document.querySelector("#txt-cursor").classList.remove("active");
 })
 document.addEventListener("keydown",(e)=>{
-
-    console.log(e.key);
-
     holdkey.push(e.keyCode);
     keycmb++;
     var mkeycmb=keycmb;

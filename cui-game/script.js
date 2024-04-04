@@ -6,31 +6,50 @@ let keycmds=[
     "38 38 40 40 37 39 37 39 65 66"
 ]
 window.addEventListener("load",()=>{
+
     document.body.hidden=false;
     // addtxt("<h1 style='text-align:center;'><img src='./logo.png'></h1>");
     // t: TOP b: BOTTOM l: LEFT r:RIGHT
     var userAgent = window.navigator.userAgent.toLowerCase();
+    // if(userAgent.indexOf("msie") != -1 ||
+    //         userAgent.indexOf("trident") != -1) {
+    //     console.log("過去にすがるな");
+    // } else if(userAgent.indexOf("edge") != -1) {
+    //     console.log("Microsoftのまわしもんか？");
+    // } else if(userAgent.indexOf("chrome") != -1) {
+    //     console.log("模範解答");
+    // } else if(userAgent.indexOf("safari") != -1) {
+    //     console.log("web-kitってgmだよね");
+    // } else if(userAgent.indexOf("firefox") != -1) {
+    //     console.log("FireFoxではデバッグしてないよ♥");
+    // } else if(userAgent.indexOf("opera") != -1) {
+    //     console.log("絶滅危惧種だよ君");
+    // }
 
-    if(userAgent.indexOf("msie") != -1 ||
-            userAgent.indexOf("trident") != -1) {
-        console.log("過去にすがるな");
-    } else if(userAgent.indexOf("edge") != -1) {
-        console.log("Microsoftのまわしもんか？");
-    } else if(userAgent.indexOf("chrome") != -1) {
-        console.log("模範解答");
-    } else if(userAgent.indexOf("safari") != -1) {
-        console.log("web-kitってgmだよね");
-    } else if(userAgent.indexOf("firefox") != -1) {
-        console.log("FireFoxではデバッグしてないよ♥");
-    } else if(userAgent.indexOf("opera") != -1) {
-        console.log("絶滅危惧種だよ君");
-    }
+    // if (navigator.userAgent.match(/iPhone|Android.+Mobile/)){
+        document.body.addEventListener("click",(e)=>{
+            document.querySelector("#mbil-input").focus();
+        })
+        document.querySelector("#mbil-input").addEventListener("input",()=>{
+            if(RegExp(/^[\x20-\x7e]*$/).test(document.querySelector("#mbil-input").value)){
+                input(document.querySelector("#mbil-input").value);
+            }
+            document.querySelector("#mbil-input").value="";
+        })
+        document.querySelector("#mbil-input").addEventListener("change",()=>{
+            keydown2.currentTime=0;
+            keydown2.play();
+            runcmd(linetxt.replace(/</g,"&lt;").replace(/>/g,"&gt;"));
+        })
+    // }
+
     addprmpt();
     setInterval(() => {
         txtcrsr.style.top=`${window.pageYOffset+document.querySelector(".cmd-line").getBoundingClientRect().top+20}px`;
         txtcrsr.style.left=`${30+10*slct_line}px`;
         // txtcrsr.style.top=`${window.pageYOffset+document.querySelector(".cmd-line").getBoundingClientRect().top+80}px`;
         // txtcrsr.style.left=`${60+40*slct_line}px`;
+        if (navigator.userAgent.match(/iPhone|Android.+Mobile/)){document.querySelector("#mbil-input").style.top=`${window.pageYOffset+document.querySelector(".cmd-line").getBoundingClientRect().top+20}px`;}
     }, 1);
 })
 function addtxt(s){

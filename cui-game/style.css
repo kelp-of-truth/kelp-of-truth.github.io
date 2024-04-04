@@ -89,3 +89,12 @@ img{
         background-color: #ffffff00;
     }
 }
+#mbil-input{
+    display: block;
+    width: fit-content;
+    height: 0px;
+    padding: 0px;
+    border: none;
+    position: absolute;
+    left: 30px;
+}
