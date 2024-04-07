@@ -250,15 +250,6 @@ html,body{
     .main{
         margin-top: 100px;
     }
-    .link-card{
-        /* transform: scale(0.9); */
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-    .link-card .link-title{
-        margin-top: 25px;
-        font-size: 28px;
-    }
     .link-card .open_in_new{
         display: none;
     }
