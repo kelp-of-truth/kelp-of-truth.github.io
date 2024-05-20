@@ -49,8 +49,11 @@ body.notfound{
 }
 @media screen and (max-width: 100vh) {
     #player{
-        margin-left: 2.5vw;
         width: 95vw;
         height: auto;
+    }
+    .player{
+        margin-left: 2.5vw;
+        width: 95vw;
     }
 }
