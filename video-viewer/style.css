@@ -47,3 +47,10 @@ body.notfound{
     width: 720px;
     margin: 0;
 }
+@media screen and (max-width: 100vh) {
+    #player{
+        margin-left: 2.5vw;
+        width: 95vw;
+        height: auto;
+    }
+}
