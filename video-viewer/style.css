@@ -1,0 +1,49 @@
+@charset "utf-8";
+html,body{
+    padding: 0px;
+    margin: 0;
+    background-color: #fff;
+}
+@media (prefers-color-scheme: dark){
+    html,body{
+        background-color: #000;
+    }
+}
+body.notfound{
+    margin-top: 30vh;
+    font-size: 36px;
+    display: block;
+    text-align: center;
+}
+.player{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 720px;
+}
+#title{
+    text-align: center;
+    font-size: 30px;
+    line-height: 2em;
+    margin-top: 10px;
+}
+#download{
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+    background-color: unset;
+    border: unset;
+    outline: unset;
+    vertical-align: middle;
+    text-align: center;
+}
+#download:focus-visible{
+    outline: 1px solid #000;
+}
+#player{
+    height: 480px;
+    width: 720px;
+    margin: 0;
+}
