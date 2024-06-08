@@ -119,7 +119,7 @@ function loop(){
         // }
         idx.age++;
     }
-    // document.querySelector("img").src=canvas.toDataURL("image/png");
+    document.querySelector("img").src=canvas.toDataURL("image/png");
     setTimeout(() => {
         requestAnimationFrame(loop);
     }, 15);
