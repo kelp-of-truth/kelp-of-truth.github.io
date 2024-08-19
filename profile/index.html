@@ -1,0 +1,153 @@
+<html lang="ja">
+    <head>
+        <title>Kelp Of Truth</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+
+        <!-- Particles.js -->
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <!-- stats.js lib -->
+        <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+        <link rel="stylesheet" href="./style.css">
+
+        <style>
+            ::-webkit-scrollbar{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="particles-js">
+            <div id="header">
+                <span style="display: flex; justify-content: center; margin-top: 32px;">
+                    <img src="./avatar.png" alt="avatar" style="border-radius: calc(infinity * 1px);border: 2px solid #172554;" width="128" height="128">
+                </span>
+                <p class="u-name">KelpOfTruth</p>
+                <div style="margin-top: 20px;">
+                    <button id="contact-btn" type="button" onclick="window.open('mailto:contact@kelpoftruth.com')">Contact</button>
+                </div>
+            </div>
+            <div id="main">
+                <article>
+                    <div id="title">KelpOfTruth</div>
+                    <hr>
+                    <h1>About</h1>
+                    <p>
+                        ゲームとウェブデザインが好きな一般人。<br>
+                        自称東方Hardシューター
+                    </p><br>
+                    <h1>SNS</h1>
+                    <div class="sns">
+                        <a href="https://www.youtube.com/channel/UCMOyYYlFHJmgTye4gEA7AyA" target="_blank">
+                            <div aria-label="youtube">
+                                <img src="./icons/youtube.svg" alt="YouTube">
+                            </div>
+                        </a>
+                        <a href="https://www.nicovideo.jp/user/125234110" target="_blank">
+                            <div aria-label="niconico">
+                                <img src="./icons/niconico.svg" alt="niconico">
+                            </div>
+                        <a href="https://twitter.com/kelpoftruth" target="_blank">
+                            <div aria-label="twitter">
+                                <img src="./icons/twitter.svg" alt="Twitter">
+                            </div>
+                        </a>
+                        <a href="https://github.com/kelp-of-truth" target="_blank">
+                            <div aria-label="github">
+                                <img src="./icons/github.svg" alt="GitHub">
+                            </div>
+                        </a>
+                        <a href="javascript:navigator.clipboard.writeText('@kelpoftruth')">
+                            <div aria-label="discord">
+                                <img src="./icons/discord.svg" alt="Discord">
+                            </div>
+                        </a>
+                    </div>
+                    <br>
+                    <h1>Achievements</h1>
+                        <div class="th">
+                            <div>
+                                <img src="./th/06.jpg" alt="the Embodiment of Scarlet Devil">
+                                <span>
+                                    <label aria-label="normal"></label><label aria-label="hard"></label><label aria-label="extra"></label>
+                                </span>
+                            </div>
+                            <div>
+                                <img src="./th/07.jpg" alt="Perfect Cherry Blossom">
+                                <span>
+                                    <label aria-label="normal"></label><label aria-label="hard"></label><label aria-label="extra"></label>
+                                </span>
+                            </div>
+                            <div>
+                                <img src="./th/08.jpg" alt="Imperishable Night">
+                                <span>
+                                    <label aria-label="normal"></label><label aria-label="hard"></label><label aria-label="extra"></label>
+                                </span>
+                            </div>
+                            <div>
+                                <img src="./th/10.jpg" alt="Mountain of Faith">
+                                <span>
+                                    <label aria-label="normal"></label><label aria-label="hard"></label><label aria-label="extra"></label>
+                                </span>
+                            </div>
+                            <div>
+                                <img src="./th/11.jpg" alt="Subterranean Animism">
+                                <span>
+                                    <label aria-label="normal"></label>
+                                </span>
+                            </div>
+                            <div>
+                                <img src="./th/12.jpg" alt="Undefined Fantastic Object">
+                                <span>
+                                    <label aria-label="normal"></label>
+                                </span>
+                            </div>
+                            <div>
+                                <img src="./th/17.jpg" alt="Wily Beast and Weakest Creature">
+                                <span>
+                                    <label aria-label="normal"></label><label aria-label="extra"></label>
+                                </span>
+                            </div>
+                            <div>
+                                <img src="./th/18.jpg" alt="Unconnected Marketeers">
+                                <span>
+                                    <label aria-label="normal"></label><label aria-label="hard"></label><label aria-label="lunatic"></label><label aria-label="extra"></label>
+                                </span>
+                            </div>
+                        </div>
+                </article>
+                <aside>
+                    <h1>niconico</h1>
+                    <iframe style="width: 100%;height: 15vh;" src="https://ext.nicovideo.jp/thumb_user/125234110" scrolling="no" style="border:solid 1px #CCC;" frameborder="0">KelpOfTruth</iframe>
+                    <h1>Twitter</h1>
+                    <div style="max-height: 65vh;overflow-y: scroll;">
+                        <a class="twitter-timeline" href="https://twitter.com/KelpOfTruth?ref_src=twsrc%5Etfw">Tweets by KelpOfTruth</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <div style="display: flex;justify-content: center;position: absolute;left: 0px;right: 0px;bottom: 40px;">
+            <button id="scrl-btn" type="button" onclick="document.querySelector('#header').style.top='-200%';this.hidden=true;document.querySelector('#main').style.top='0px';setTimeout(()=>{document.querySelector('#main').style.opacity='1';document.querySelector('#main').style.pointerEvents='all'},500)">
+                <svg xmlns="http://www.w3.org/2000/svg" height="64px" viewBox="0 -960 960 960" width="64px" fill="#1e40af" style="transition: 300ms;"><path d="M480-356q-6 0-11-2t-10-7L261-563q-9-9-8.5-21.5T262-606q9-9 21.5-9t21.5 9l175 176 176-176q9-9 21-8.5t21 9.5q9 9 9 21.5t-9 21.5L501-365q-5 5-10 7t-11 2Z"/></svg>
+            </button>
+        </div>
+    </body>
+    <!-- particle -->
+    <script src="./particles-js.js"></script>
+    <!-- <script>document.querySelector("#scrl-btn").click()</script> -->
+    <script>
+        let img_row=0;
+        for(let idx of document.querySelector("article .th li img")){
+            idx.style.row=img_row;
+            idx.style.column
+            img_row++;
+        }
+    </script>
+</html>
