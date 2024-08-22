@@ -5,6 +5,12 @@ html,body{
 }
 body{
     background: linear-gradient(#082f49,#172554);
+    background-image: url(./bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    backdrop-filter: brightness(0.5);
+    -webkit-backdrop-filter: brightness(0.5);
+    transition: 500ms;
 }
 #particles-js{
     overflow: hidden;
@@ -62,7 +68,7 @@ body{
 #scrl-btn{
     transition: 200ms;
     border-radius: 2px;
-    background-color: #dbeafe;
+    background-color: #ffffff;
     border: unset;
     padding: 0;
     cursor: default;
@@ -82,7 +88,7 @@ article{
     position: absolute;
     left: 20%;
     width: calc(50% - 15rem);
-    background-color: #d8f3ffcc;
+    background-color: #d3d3d3c4;
     min-height: 100%;
     height: fit-content;
     top: 0px;
@@ -255,9 +261,9 @@ aside iframe div{
 }
 @media screen and (max-width:500px) {
     article{
-        width: 95%;
-        padding-left: 2.5%;
-        padding-right: 2.5%;
+        width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
         margin: 0;
         left: 0;
     }
