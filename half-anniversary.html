@@ -50,12 +50,12 @@
     const hlfanv=new Date(2024,10,30,0,0,0);
     var date=new Date();
     var content=convert((hlfanv.getDate()*86400+hlfanv.getHours()*3600+hlfanv.getMinutes()*60+hlfanv.getSeconds())-(date.getDate()*86400+date.getHours()*3600+date.getMinutes()*60+date.getSeconds()));
-    clock.innerHTML=`${String(content[0]).padStart(2,0)}日${String(content[1]).padStart(2,0)}時間${String(content[2]).padStart(2,0)}分${String(content[3]).padStart(2,0)}秒`;
+    clock.innerHTML=`ハフバまであと<br>${String(content[0]).padStart(2,0)}日${String(content[1]).padStart(2,0)}時間${String(content[2]).padStart(2,0)}分${String(content[3]).padStart(2,0)}秒`;
 
     setInterval(() => {
         var date=new Date();
         var content=convert((hlfanv.getDate()*86400+hlfanv.getHours()*3600+hlfanv.getMinutes()*60+hlfanv.getSeconds())-(date.getDate()*86400+date.getHours()*3600+date.getMinutes()*60+date.getSeconds()));
-        clock.innerHTML=`${String(content[0]).padStart(2,0)}日${String(content[1]).padStart(2,0)}時間${String(content[2]).padStart(2,0)}分${String(content[3]).padStart(2,0)}秒`;
+        clock.innerHTML=`ハフバまであと<br>${String(content[0]).padStart(2,0)}日${String(content[1]).padStart(2,0)}時間${String(content[2]).padStart(2,0)}分${String(content[3]).padStart(2,0)}秒`;
     }, 1000);
     function convert(n){
         console.log(n)
