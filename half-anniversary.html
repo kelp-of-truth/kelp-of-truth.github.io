@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ロスワハフバまであと</title>
+</head>
+<style>
+    html{
+        background-image: url(./huukesshou.webp);
+    }
+    body{
+        font-family: sans-serif;
+        background-color: #ffffffd2;
+        margin: 0;
+    }
+    @media screen and (max-width: 400px) {
+        h1{
+            font-size: 40px !important;
+        }
+        #clock{
+            font-size: 32px !important;
+        }
+    }
+    h1{
+        font-size: 100px;
+        font-weight: 600;
+        text-align: center;
+    }
+    h1 img{
+        height: 1em;
+        vertical-align: middle;
+        margin-right: 0.2em;
+    }
+    #clock{
+        display: block;
+        text-align: center;
+        font-size: 80px;
+        font-weight: 600;
+    }
+</style>
+<body>
+    <h1><img src="./huukesshou.webp" alt="">石貯めろ</h1>
+    <span id="clock">dd/hh/mm/ss</span>
+</body>
+<script>
+    const clock=document.querySelector("#clock");
+    const hlfanv=new Date(2024,10,30,0,0,0);
+    var date=new Date();
+    var content=convert((hlfanv.getDate()*86400+hlfanv.getHours()*3600+hlfanv.getMinutes()*60+hlfanv.getSeconds())-(date.getDate()*86400+date.getHours()*3600+date.getMinutes()*60+date.getSeconds()));
+    clock.innerHTML=`${String(content[0]).padStart(2,0)}日${String(content[1]).padStart(2,0)}時間${String(content[2]).padStart(2,0)}分${String(content[3]).padStart(2,0)}秒`;
+
+    setInterval(() => {
+        var date=new Date();
+        var content=convert((hlfanv.getDate()*86400+hlfanv.getHours()*3600+hlfanv.getMinutes()*60+hlfanv.getSeconds())-(date.getDate()*86400+date.getHours()*3600+date.getMinutes()*60+date.getSeconds()));
+        clock.innerHTML=`${String(content[0]).padStart(2,0)}日${String(content[1]).padStart(2,0)}時間${String(content[2]).padStart(2,0)}分${String(content[3]).padStart(2,0)}秒`;
+    }, 1000);
+    function convert(n){
+        console.log(n)
+        var val=[];
+        val[0]=(n-n%86400)/86400
+        val[1]=(n%86400-n%3600)/3600;
+        val[2]=(n%3600-n%60)/60;
+        val[3]=n%60;
+        return val;
+    }
+</script>
+</html>
