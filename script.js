@@ -1,44 +1,61 @@
+const theme_dark=
+`:root{
+    --b-0: #ffffff;
+    --b-1: #cccccc;
+    --b-2: #999999;
+    --b-3: #666666;
+    --b-4: #333333;
+    --b-5: #000000;
+    --font: #ffffff;
+    --back: #333333;
+    --f-back: #000000;
+    --theme-change: #660099;
+}`
+const theme_light=
+`:root{
+    --b-0: #000000;
+    --b-1: #333333;
+    --b-2: #666666;
+    --b-3: #999999;
+    --b-4: #cccccc;
+    --b-5: #ffffff;
+    --font: #333333;
+    --back: #ffffff;
+    --f-back: #cccccc;
+    --theme-change: #ffff99;
+}`
 window.addEventListener("load",()=>{
-    const main=document.querySelector(".main");
-    const header=document.querySelector(".header");
-    header.classList.add("visible")
-    main.hidden=false;
-    document.querySelector(".footer").style.display="inline-block";
-    setTimeout(() => {
-        main.classList.add("visible");
-    }, 1);
-})
-// window.addEventListener("scroll",()=>{
-//     if(window.scrollY+document.querySelector(".apple-music iframe").clientHeight>document.querySelector(".apple-music").getBoundingClientRect().y){
-//         setTimeout(() => {
-//             document.querySelector(".apple-music iframe").classList.add("visible");
-//         }, 1);
-//     }
-// })
-// let copied_timer=0;
-function contentCopied(n){
-    if(n>0){
-        setTimeout(() => {
-            document.querySelector(".content_copy img").src="./img/content_copied.png";
-            document.querySelector(".content_copy img").alt="content_copied";
-            n-=1;
-            contentCopied(n);
-        }, 1);
+var is_dm=localStorage.getItem("theme");
+if(is_dm===null){
+    is_dm=window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.querySelector("#theme-change").checked=is_dm;
+    if(is_dm){
+        document.querySelector("#css-theme").innerHTML=theme_dark;
+        localStorage.setItem("theme","1");
     }else{
-        document.querySelector(".content_copy img").src="./img/content_copy.png";
-        document.querySelector(".content_copy img").alt="content_copy";
-        return true;
+        document.querySelector("#css-theme").innerHTML=theme_light;
+        localStorage.setItem("theme","0");
+    }
+}else{
+    is_dm=Number(is_dm);
+    document.querySelector("#theme-change").checked=is_dm;
+    if(is_dm){
+        document.querySelector("#css-theme").innerHTML=theme_dark;
+    }else{
+        document.querySelector("#css-theme").innerHTML=theme_light;
     }
 }
-function ad(n){
-    if(n===0){
-        alert(":thinking:")
-    }
+document.body.hidden=false;
+document.querySelector("main").style.paddingTop=`${document.querySelector("header").clientHeight}px`;
+document.querySelector("html").style.scrollPadding=`${document.querySelector("header").clientHeight}px`;
+})
+document.querySelector("#theme-change").addEventListener("change",(e)=>{
+if(e.target.checked){
+    document.querySelector("#css-theme").innerHTML=theme_dark;
+    localStorage.setItem("theme","1");
+    
+}else{
+    document.querySelector("#css-theme").innerHTML=theme_light;
+    localStorage.setItem("theme","0");
 }
-setInterval(() => {
-    if(document.getElementById("aswift_7").clientHeight===0){
-        for(let idx of document.querySelectorAll(".ad")){
-            idx.remove();
-        }
-    }
-}, 10);
+})

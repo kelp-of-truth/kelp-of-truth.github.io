@@ -1,164 +1,75 @@
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>真実のこんぶ</title>
-        <link rel="stylesheet" href="./style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <noscript>
-        JavaScriptオンにしろよks
-    </noscript>
-    <body>
-        <div class="header">
-            <div class="header-info">
-                <div class="img inline-block" style="margin-bottom: 2rem;">
-                    <img src="./avatar.png" alt="avatar" class="avatar">
-                </div
-                ><div class="u-info inline-block">
-                    <ul class="u-info-ul inline">
-                        <li>
-                            <div class="u-name">
-                                真実のこんぶ
-                            </div>
-                        </li>
-                        <li>
-                            <div class="u-id">
-                                KelpOfTruth
-                            </div>
-                        </li>
-                    </ul>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style id="css-theme"></style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode,light_mode,search" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body hidden>
+    <header>
+        <div class="div-h">
+            <h1 class="h-title">kelpoftruth.com</h1>
+            <div class="h-nav">
+                <div class="h-link">
+                    <a href="https://kelpoftruth.com/">Top</a>
+                </div>
+                <div class="h-link">
+                    <a href="https://kelpoftruth.com/articles/">Articles</a>
+                </div>
+                <div class="h-link">
+                    <a href="https://kelpoftruth.com/tags/">Tags</a>
+                </div>
+                <div class="h-link">
+                    <a href="https://kelpoftruth.com/contact/">Contact</a>
                 </div>
             </div>
-            <div class="extra-info">
-                <div class="e-mail">
-                    <label class="info-email-emoji">
-                        <img src="./img/mail.png" alt="✉" class="emoji"
-                    ></label
-                    ><a class="mailto" href="mailto:contact@kelpoftruth.com" target="_blank">contact@kelpoftruth.com</a>
+            <div class="h-right">
+                <input class="material-symbols-outlined" type="checkbox" id="theme-change">
+                <div class="search">
+                    <label for="search" class="search-icon material-symbols-outlined">search</label>
+                    <div class="search-box">
+                        <input id="search" placeholder="Search" type="text">
+                    </div>
                 </div>
+                
             </div>
         </div>
-        <div class="main" hidden>
-            <div class="sns">
-                <div class="link-card">
-                    <a href="https://www.youtube.com/channel/UCMOyYYlFHJmgTye4gEA7AyA" target="_blank">
-                        <div class="icon" style="background-color: #FF0000;">
-                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/
-                            ></svg>
-                        </div>
-                        <div class="link-title">YouTube</div>
-                        <div class="link-uri">youtube.com</div>
-                        <div class="open_in_new">
-                            <img src="./img/open_in_new.png" alt="open_in_new">
-                        </div>
-                    </a>
-                </div>
-                <div class="link-card">
-                    <a href="https://twitter.com/kelpoftruth" target="_blank">
-                        <div class="icon" style="background-color: #1D9BF0;">
-                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/
-                            ></svg>
-                        </div>
-                        <div class="link-title">Twitter</div>
-                        <div class="link-uri">twitter.com</div>
-                        <div class="open_in_new">
-                            <img src="./img/open_in_new.png" alt="open_in_new">
-                        </div>
-                    </a>
-                </div>
-                <div class="link-card">
-                    <a href="https://github.com/kelp-of-truth" target="_blank">
-                        <div class="icon" style="background-color: #181717;">
-                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/
-                            ></svg>
-                        </div>
-                        <div class="link-title">GitHub</div>
-                        <div class="link-uri">github.com</div>
-                        <div class="open_in_new">
-                            <img src="./img/open_in_new.png" alt="open_in_new">
-                        </div>
-                    </a>
-                </div>
-                <div class="link-card">
-                    <a href="https://steamcommunity.com/id/kelp_of_truth/" target="_blank">
-                        <div class="icon" style="background-color: #000000;">
-                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/
-                            ></svg>
-                        </div>
-                        <div class="link-title">Steam</div>
-                        <div class="link-uri">steamcommunity.com</div>
-                        <div class="open_in_new">
-                            <img src="./img/open_in_new.png" alt="open_in_new">
-                        </div>
-                    </a>
-                </div>
-                <div class="link-card">
-                    <a href="https://music.apple.com/profile/kelpoftruth" target="_blank">
-                        <div class="icon" style="background-color: #FA243C;">
-                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 001.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 001.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536a1.88 1.88 0 011.038-2.022c.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.904.904 0 00.02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 00-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.325.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.755-.6-1.92-1.544-.14-.812.23-1.685 1.154-2.075.357-.15.73-.232 1.108-.31.287-.06.575-.116.86-.177.383-.083.583-.323.6-.714v-.15c0-2.96 0-5.922.002-8.882 0-.123.013-.25.042-.37.07-.285.273-.448.546-.518.255-.066.515-.112.774-.165.733-.15 1.466-.296 2.2-.444l2.27-.46c.67-.134 1.34-.27 2.01-.403.22-.043.442-.088.663-.106.31-.025.523.17.554.482.008.073.012.148.012.223.002 1.91.002 3.822 0 5.732z"/
-                            ></svg>
-                        </div>
-                        <div class="link-title">Music</div>
-                        <div class="link-uri">music.apple.com</div>
-                        <div class="open_in_new">
-                            <img src="./img/open_in_new.png" alt="open_in_new">
-                        </div>
-                    </a>
-                </div>
-                <div class="link-card">
-                    <a onclick="navigator.clipboard.writeText('kelpoftruth');contentCopied(500);">
-                        <div class="icon" style="background-color: #5865F2;">
-                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/
-                            ></svg>
-                        </div>
-                        <div class="link-title">Discord</div>
-                        <div class="link-uri">discord.com</div>
-                        <div class="open_in_new content_copy">
-                            <img src="./img/content_copy.png" alt="open_in_new">
-                        </div>
-                    </a>
-                </div>
+    </header>
+    <main>
+        <article>
+            <h1>Welcome</h1>
+            <p>
+                まだ何もないよ
+            </p>
+        </article>
+        <footer>
+            Email address : <a href="mailto:kelpoftruth@gmail.com">kelpoftruth@gmail.com</a><br>
+            Copyright © 2023 Kelp-Of-Truth All Rights Reserved.
+            <div class="footer-link">
+                <a target="_blank" href="https://twitter.com/kelpoftruth">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/
+                    ></svg>
+                </a>
+                <a target="_blank" href="https://youtube.com/@kelpoftruth">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/
+                    ></svg>
+                </a>
+                <a target="_blank" href="https://github.com/Kelp-Of-Truth">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/
+                        ></svg>
+                </a>
             </div>
-
-            <br>
-            <br>
-            <br>
-            <div class="apple-music">
-                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/playlist/top5/pl.u-yZyVW5lFdb3yekN"></iframe>
-                <!-- <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0XDLlR2ESfI35441EPkhoR?utm_source=generator" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
-            </div>
-            
-        </div>
-            <div class="footer">
-                <p>
-                    Email address : <a href="mailto:contact@kelpoftruth.com" style="color: inherit; text-decoration: underline;" class="notranslate">contact@kelpoftruth.com</a> <br>
-                    Copyright © 2023 Kelp-Of-Truth All Rights Reserved.
-                </p>
-            </div>
-        <div class="aside" style="display: none;">
-            <a href="https://kelpoftruth.com/canvas-test" target="_blank" class="ad">
-                <img src="./ads/ad01.png" alt="私の年収低すぎ" oncontextmenu="ad(0);return false;">
-            </a>
-            <a href="https://google.com" target="_blank" class="ad">
-                質の高い検索エンジンならGoogle<br>　　~ google.com
-            </a>
-            <a href="https://bing.com" target="_blank" class="ad">
-                GoogleはSEO見直せ<br>　　~ bing.com
-            </a>
-            <a href="https://youtube.com/@kelpoftruth" target="_blank" class="ad">
-                ちょうおもしろいゆっくり実況者
-            </a>
-            <iframe id="aswift_7" style="width:160px !IMPORTANT;height:10px !IMPORTANT" width="160" height="10" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" src="https://googleads.g.doubleclick.net/pagead/html/r20240319/r20110914/zrt_lookup_fy2021.html#RS-2-&amp;adk=1812271804&amp;client=ca-pub-3379985137659977&amp;fa=4&amp;ifi=8&amp;uci=a!8&amp;btvi=4"></iframe>
-            <!-- <iframe src="https://discord.com/widget?id=1113468176567640115&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
-            <!-- <a class="twitter-timeline" href="https://twitter.com/KelpOfTruth?ref_src=twsrc%5Etfw">Tweets by KelpOfTruth</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
-        </div>
-    </body>
-    <script src="./script.js"></script>
+        </footer>
+    </main>
+</body>
+<script src="./script.js"></script>
 </html>
