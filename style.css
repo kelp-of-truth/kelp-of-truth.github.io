@@ -259,12 +259,9 @@ main footer .footer-link svg{
         height: 0px;
         text-align: center;
         border-bottom: 1px solid var(--b-3);
-        box-shadow: 0px 3px 2px var(--b-3);
-        border-top: 1px solid transparent;
-        transition: height 500ms;
+        transition: height 500ms linear;
     }
     .h-mobile.open{
-        border-top-color: var(--b-3);
         height: 100svh;
     }
     .div-h{
