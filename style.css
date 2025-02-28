@@ -115,9 +115,7 @@ header{
     display: flex;
     align-items: center;
     outline: 1px solid var(--b-3);
-    padding-top: 2px;
-    padding-left: 2px;
-    padding-right: 2px;
+    padding: 2px;
     border-radius: 100vmax;
 }
 .h-right .search-icon{
