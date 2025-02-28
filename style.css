@@ -71,8 +71,11 @@ header{
     text-decoration: unset;
 }
 .h-right{
+    position: absolute;
+    right: 0px;
     display: flex;
     align-items: center;
+    justify-content: right;
     margin-left: auto;
     margin-right: 1rem;
     appearance: none;
@@ -239,16 +242,47 @@ main footer .footer-link svg{
         opacity: 1;
     }
 }
+.h-mobile{
+    display: flex;
+    align-items: center;
+}
 @media screen and (max-width: 100svh) {
     #menu-btn{
         display: inline;
+    }
+    .h-mobile{
+        background-color: var(--back);
+        position: absolute;
+        flex-direction: column;
+        width: 100svw;
+        overflow: hidden;
+        height: 0px;
+        text-align: center;
+        border-bottom: 1px solid var(--b-3);
+        box-shadow: 0px 3px 2px var(--b-3);
+        border-top: 1px solid transparent;
+        transition: height 500ms;
+    }
+    .h-mobile.open{
+        border-top-color: var(--b-3);
+        height: 100svh;
     }
     .div-h{
         flex-direction: column;
         justify-content: center;
     }
-    .h-nav,.h-right{
-        display: none;
+    .h-right{
+        right: auto;
+        margin-top: 40px;
+        /* margin-right: 0; */
+    }
+    .h-nav{
+        padding-bottom: 40px;
+        margin: 0;
+        margin-top: 100px;
+    }
+    .h-nav{
+        flex-direction: column;
     }
     .h-title{
         /* font-size: 28px; */

@@ -46,6 +46,8 @@ if(is_dm===null){
     }
 }
 document.body.hidden=false;
+document.querySelector(".h-mobile").style.top=`${document.querySelector("header").clientHeight}px`;
+// document.querySelector(".h-mobile").style.height=`calc(100svh - ${document.querySelector("header").clientHeight}px)`;
 document.querySelector("main").style.paddingTop=`${document.querySelector("header").clientHeight}px`;
 document.querySelector("html").style.scrollPadding=`${document.querySelector("header").clientHeight}px`;
 })
@@ -60,5 +62,6 @@ if(e.target.checked){
 }
 })
 document.querySelector("#menu-btn").addEventListener("click",()=>{
-    document.querySelector("#menu-btn").classList.toggle("open")
+    document.querySelector("#menu-btn").classList.toggle("open");
+    document.querySelector(".h-mobile").classList.toggle("open");
 })
