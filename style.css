@@ -233,6 +233,16 @@ main footer .footer-link svg{
     width: 32px;
     fill: var(--b-2);
 }
+
+
+article code.hljs{
+    outline: 1px solid var(--b-4);
+    border-radius: 10px;
+}
+
+
+
+
 @media (hover: hover){
     .h-nav .h-link a:hover{
         outline: none;
