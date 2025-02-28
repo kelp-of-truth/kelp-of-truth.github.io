@@ -269,7 +269,7 @@ article code.hljs{
         height: 0px;
         text-align: center;
         border-bottom: 1px solid var(--b-3);
-        transition: height 500ms linear;
+        transition: height 250ms linear;
     }
     .h-mobile.open{
         height: 100svh;
