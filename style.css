@@ -25,6 +25,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: left;
+    flex-direction: row;
     /* margin: auto; */
 }
 .h-title{
@@ -42,9 +43,9 @@ header{
 }
 .h-nav .h-link{
     display: inline;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     position: relative;
+    width: 5em;
+    text-align: center;
 }
 .h-nav .h-link::before{
     content: "";
@@ -59,12 +60,10 @@ header{
     opacity: 0;
     box-shadow: 0px -3px 3px var(--b-3);
 }
-.h-nav .h-link a:focus-visible,.h-nav .h-link a:hover{
-    /* text-shadow: 3px 3px 2px var(--b-2); */
+.h-nav .h-link a:focus-visible{
     outline: none;
 }
-.h-nav .h-link:has(a:hover,a:focus)::before{
-    /* height: 100%; */
+.h-nav .h-link:has(a:focus)::before{
     top: calc(100% + 3px);
     opacity: 1;
 }
@@ -158,6 +157,48 @@ header{
 .h-right .search-box:has(input:focus-visible)::after{
     width: 100%;
 }
+.mobile-menu{
+    line-height: 0px;
+    position: absolute;
+    right: 0px;
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#menu-btn{
+    line-height: 0px;
+    cursor: pointer;
+    display: none;
+    position: relative;
+    margin-left: auto;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 0px;
+}
+#menu-btn .menu-bar{
+    line-height: 0px;
+    position: absolute;
+    background-color: var(--b-0);
+    width: 20px;
+    height: 2px;
+    left: 5px;
+    transition: 250ms ease-in-out;
+}
+#menu-btn .menu-bar:nth-child(1){
+    top: 9px;
+}
+#menu-btn .menu-bar:nth-child(2){
+    top: 19px;
+}
+#menu-btn.open .menu-bar:nth-child(1){
+    top: 14px;
+    rotate: -45deg;
+}
+#menu-btn.open .menu-bar:nth-child(2){
+    top: 14px;
+    rotate: 45deg;
+}
 
 main{
     background-color: var(--back);
@@ -188,4 +229,36 @@ main footer .footer-link svg{
     height: 32px;
     width: 32px;
     fill: var(--b-2);
+}
+@media (hover: hover){
+    .h-nav .h-link a:hover{
+        outline: none;
+    }
+    .h-nav .h-link:has(a:hover)::before{
+        top: calc(100% + 3px);
+        opacity: 1;
+    }
+}
+@media screen and (max-width: 100svh) {
+    #menu-btn{
+        display: inline;
+    }
+    .div-h{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .h-nav,.h-right{
+        display: none;
+    }
+    .h-title{
+        /* font-size: 28px; */
+    }
+    .h-title{
+        margin-left: 1em;
+        margin-right: auto;
+    }
+    main article{
+        width: 90svw;
+        margin-left: 5svw;
+    }
 }

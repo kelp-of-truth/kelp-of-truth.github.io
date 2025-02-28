@@ -59,3 +59,6 @@ if(e.target.checked){
     localStorage.setItem("theme","0");
 }
 })
+document.querySelector("#menu-btn").addEventListener("click",()=>{
+    document.querySelector("#menu-btn").classList.toggle("open")
+})
