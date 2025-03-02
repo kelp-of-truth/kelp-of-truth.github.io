@@ -248,6 +248,7 @@ main article{
     min-height: 100svh;
     width: 60svw;
     margin-left: 20svw;
+    padding-bottom: 5rem;
 }
 main footer{
     width: 100svw;
