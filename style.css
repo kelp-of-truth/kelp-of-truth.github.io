@@ -12,6 +12,41 @@ html,body{
     font-family: "IBM Plex Sans JP", serif;
     color: var(--font);
 }
+::-webkit-scrollbar{
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+#scrollbar{
+    display: none;
+    position: fixed;
+    height: 100svh;
+    width: 8px;
+    padding: 5px;
+    z-index: 2;
+    right: 0px;
+    top: 0px;
+}
+#scrollbar #scrolltrack{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 8px;
+    position: absolute;
+    height: 50px;
+    background-color: var(--b-1);
+    opacity: 0;
+    transition: opacity 150ms linear;
+    border-radius: 1px;
+    /* z-index: 2; */
+}
+#scrollbar #scrolldialog{
+    position: fixed;
+    width: 100svw;
+    height: 100svh;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
 header{
     top: 0px;
     left: 0px;
@@ -245,6 +280,9 @@ article code.hljs{
 
 
 @media (hover: hover){
+    #scrollbar{
+        display: block;
+    }
     .h-nav .h-link a:hover{
         outline: none;
     }
