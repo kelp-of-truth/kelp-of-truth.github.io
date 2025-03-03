@@ -19,8 +19,7 @@ html,body{
     font-size: 18px;
 }
 body,header,article,a,input{
-    font-family: "Coporate-Logo-Medium";
-    /* font-family: "IBM Plex Sans JP", serif; */
+    font-family: "Coporate-Logo-Medium", "IBM Plex Sans JP", serif;
     color: var(--font);
 }
 ::-webkit-scrollbar{
