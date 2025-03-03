@@ -2,12 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap');
 @font-face {
-    font-family: Corporate-Logo-Medium;
-    src: url(./Corporate-Logo-Medium-ver3.otf);
+    font-family: "Corporate-Logo-Medium";
+    src: url"(https://kelpoftruth.com/assets/Corporate-Logo-Medium-ver3.otf");
 }
 @font-face {
-    font-family: Corporate-Logo-Bold;
-    src: url(./Corporate-Logo-Bold-ver3.otf);
+    font-family: "Corporate-Logo-Bold";
+    font-weight: bold;
+    src: url("https://kelpoftruth.com/assets/Corporate-Logo-Bold-ver3.otf");
 }
 html{
     scroll-behavior: smooth;
@@ -18,7 +19,7 @@ html,body{
     font-size: 18px;
 }
 body,header,article,a,input{
-    font-family: Coporate-Logo-Medium;
+    font-family: "Coporate-Logo-Medium";
     /* font-family: "IBM Plex Sans JP", serif; */
     color: var(--font);
 }
@@ -75,8 +76,6 @@ header{
     /* margin: auto; */
 }
 .h-title{
-    font-family: Corporate-Logo-Bold !important;
-    font-weight: bolder;
     font-size: 28px;
     margin-left: 2em;
     line-height: 1em;
