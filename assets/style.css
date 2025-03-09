@@ -19,6 +19,7 @@ html,body{
 }
 body,header,article,a,input{
     font-family: "Oxanium", "Coporate-Logo-Medium", "IBM Plex Sans JP", sans-serif;
+    font-optical-sizing: auto;
     color: var(--font);
 }
 ::-webkit-scrollbar{
