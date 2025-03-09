@@ -383,4 +383,8 @@ article code.hljs{
         width: 90svw;
         margin-left: 5svw;
     }
+    main article img{
+        max-width: 90%;
+        margin: 5%;
+    }
 }
