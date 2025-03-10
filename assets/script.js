@@ -91,6 +91,15 @@ window.addEventListener("resize",()=>{
 function scrollbar(){
     track.style.top=`${window.scrollY*(window.innerHeight/document.body.clientHeight)}px`;
 }
+for(let idx of document.querySelectorAll("img")){
+    idx.addEventListener("click",()=>{
+        window.open(idx.src,"_blank")
+    })
+}
+
+
+
+
 // let track_start=false;
 // track.addEventListener("mousedown",(e)=>{
 //     track_start=e.pageY;
