@@ -260,6 +260,7 @@ main article{
     padding-bottom: 5rem;
 }
 article .tags{
+    margin: 0;
     list-style: none;
     display: flex;
     flex-direction: row;
