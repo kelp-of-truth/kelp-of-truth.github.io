@@ -259,6 +259,19 @@ main article{
     margin-left: 20svw;
     padding-bottom: 5rem;
 }
+article tags{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+article tags tag{
+    background-color: var(--f-back);
+    padding: 0.25em;
+}
+article tags tag a{
+    text-decoration: none;
+}
 main footer{
     width: 100svw;
     background-color: var(--f-back);
