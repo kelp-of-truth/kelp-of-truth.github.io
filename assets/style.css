@@ -262,7 +262,7 @@ main article{
 article .tags{
     list-style: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1em;
 }
 article .tags .tag{
