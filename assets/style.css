@@ -260,11 +260,13 @@ main article{
     padding-bottom: 5rem;
 }
 article .tags{
+    padding-left: 0;
     margin-left: 0;
     list-style: none;
     display: flex;
     flex-direction: row;
     gap: 1em;
+    flex-wrap: wrap;
 }
 article .tags .tag{
     background-color: var(--font);
