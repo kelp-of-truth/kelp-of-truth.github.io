@@ -18,7 +18,7 @@ html,body{
     font-size: 18px;
 }
 body,header,article,a,input{
-    font-family: "Oxanium", "Coporate-Logo-Medium", "IBM Plex Sans JP", sans-serif;
+    font-family: "Coporate-Logo-Medium", "IBM Plex Sans JP", sans-serif;
     font-optical-sizing: auto;
     color: var(--font);
 }
@@ -75,6 +75,7 @@ header{
     /* margin: auto; */
 }
 .h-title{
+    font-family: "Oxanium" sans-serif;
     font-size: 28px;
     margin-left: 2em;
     line-height: 1em;
