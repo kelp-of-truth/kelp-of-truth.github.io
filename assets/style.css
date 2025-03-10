@@ -267,13 +267,13 @@ article .tags{
     gap: 1em;
 }
 article .tags .tag{
-    color: var(--back);
     background-color: var(--font);
     padding: 0.25em;
     border-radius: 5px;
     line-height: 1em;
 }
 article .tags .tag a{
+    color: var(--back);
     text-decoration: none;
 }
 main footer{
