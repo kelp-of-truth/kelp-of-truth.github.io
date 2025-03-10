@@ -267,7 +267,8 @@ article .tags{
     gap: 1em;
 }
 article .tags .tag{
-    background-color: var(--back-1);
+    color: var(--back);
+    background-color: var(--font);
     padding: 0.25em;
     border-radius: 5px;
     line-height: 1em;
