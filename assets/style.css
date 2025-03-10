@@ -260,14 +260,14 @@ main article{
     padding-bottom: 5rem;
 }
 article .tags{
-    margin: 0;
+    margin-left: 0;
     list-style: none;
     display: flex;
     flex-direction: row;
     gap: 1em;
 }
 article .tags .tag{
-    background-color: var(--b-3);
+    background-color: var(--back-1);
     padding: 0.25em;
     border-radius: 5px;
     line-height: 1em;
