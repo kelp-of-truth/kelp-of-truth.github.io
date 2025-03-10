@@ -269,7 +269,7 @@ article .tags .tag{
     background-color: var(--f-back);
     padding: 0.25em;
 }
-article tags tag a{
+article .tags .tag a{
     text-decoration: none;
 }
 main footer{
