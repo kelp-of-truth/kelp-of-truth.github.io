@@ -258,6 +258,7 @@ main article{
     width: 60svw;
     margin-left: 20svw;
     padding-bottom: 5rem;
+    line-height: 2em;
 }
 article .tags{
     padding-left: 0;
@@ -338,6 +339,10 @@ article img{
 }
 article code{
     font-family: Inconsolata;
+    background-color: #91919147;
+    padding: 0.15em;
+    border-radius: 0.3em;
+    margin: 0.15em;
 }
 article code.hljs{
     outline: 1px solid var(--b-4);
