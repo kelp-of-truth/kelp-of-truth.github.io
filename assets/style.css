@@ -75,7 +75,7 @@ header{
     /* margin: auto; */
 }
 .h-title{
-    font-family: "Oxanium" sans-serif !important;
+    font-family: "Oxanium", sans-serif;
     font-size: 28px;
     margin-left: 2em;
     line-height: 1em;
