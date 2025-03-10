@@ -275,6 +275,7 @@ article .tags .tag{
 article .tags .tag a{
     color: var(--back);
     text-decoration: none;
+    text-wrap: nowrap;
 }
 main footer{
     width: 100svw;
