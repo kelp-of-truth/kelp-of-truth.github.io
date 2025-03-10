@@ -268,6 +268,8 @@ article .tags{
 article .tags .tag{
     background-color: var(--f-back);
     padding: 0.25em;
+    border-radius: 5px;
+    line-height: 1em;
 }
 article .tags .tag a{
     text-decoration: none;
