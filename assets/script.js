@@ -8,6 +8,7 @@ const theme_dark=
     --b-5: #000000;
     --font: #ffffff;
     --back: #333333;
+    --back-1: #666666;
     --f-back: #000000;
     --theme-change: #660099;
 }
@@ -23,6 +24,7 @@ const theme_light=
     --b-5: #ffffff;
     --font: #333333;
     --back: #ffffff;
+    --back-1: #cccccc;
     --f-back: #cccccc;
     --theme-change: #ffff99;
 }
