@@ -7,9 +7,9 @@ window.addEventListener("load", () => {
         top: 0px;
         width: 50px;
         height: 50px;
+        z-index:9999999;
         /* border: 1px solid #000; */
         pointer-events: none;
-        z-index: 99999999;
       }
       .particle .pulse {
         position: absolute;
@@ -71,15 +71,15 @@ document.addEventListener("touchstart", (e) => {
       particle.querySelector(".pulse").style.padding = "15px";
       particle.querySelector(".pulse").style.margin = "-15px";
       particle.querySelector(".pulse").style.opacity = "0";
-      for (let idx of particle.querySelectorAll(".dust")) {
-        idx.style.rotate = `${idx.getAttribute("ariaLabel")}deg`;
-        idx.style.marginLeft = `${
-          Math.cos((idx.getAttribute("ariaLabel") / 180) * Math.PI) * 30
+      for (let idx2 of particle.querySelectorAll(".dust")) {
+        idx2.style.rotate = `${idx2.getAttribute("ariaLabel")}deg`;
+        idx2.style.marginLeft = `${
+          Math.cos((idx2.getAttribute("ariaLabel") / 180) * Math.PI) * 30
         }px`;
-        idx.style.marginTop = `${
-          -1 * Math.sin((idx.getAttribute("ariaLabel") / 180) * Math.PI) * 30
+        idx2.style.marginTop = `${
+          -1 * Math.sin((idx2.getAttribute("ariaLabel") / 180) * Math.PI) * 30
         }px`;
-        idx.style.opacity = "0";
+        idx2.style.opacity = "0";
       }
     }, 1);
   }
