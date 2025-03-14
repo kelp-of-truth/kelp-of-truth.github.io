@@ -9,6 +9,7 @@ window.addEventListener("load", () => {
         height: 50px;
         /* border: 1px solid #000; */
         pointer-events: none;
+        z-index: 99999999;
       }
       .particle .pulse {
         position: absolute;
