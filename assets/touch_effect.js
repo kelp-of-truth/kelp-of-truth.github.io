@@ -2,7 +2,7 @@ window.addEventListener("load", () => {
   document.head.innerHTML += `
   <style>
     .particle {
-        position: absolute;
+        position: fixed;
         left: 0px;
         top: 0px;
         width: 50px;
@@ -45,8 +45,8 @@ document.addEventListener("touchstart", (e) => {
   for (let idx of e.touches) {
     var particle = document.createElement("div");
     particle.classList.add("particle");
-    particle.style.left = `${idx.pageX - 25}px`;
-    particle.style.top = `${idx.pageY - 25}px`;
+    particle.style.left = `${idx.clientX - 25}px`;
+    particle.style.top = `${idx.clientY - 25}px`;
     particle.ariaLabel = 800;
     particle.innerHTML = `
     <div class="pulse"></div>
@@ -88,10 +88,11 @@ document.addEventListener("touchstart", (e) => {
 });
 if (navigator.maxTouchPoints === 0) {
   document.addEventListener("mousedown", (e) => {
+    console.log(e);
     var particle = document.createElement("div");
     particle.classList.add("particle");
-    particle.style.left = `${e.pageX - 25}px`;
-    particle.style.top = `${e.pageY - 25}px`;
+    particle.style.left = `${e.clientX - 25}px`;
+    particle.style.top = `${e.clientY - 25}px`;
     particle.ariaLabel = 800;
     particle.innerHTML = `
     <div class="pulse"></div>
