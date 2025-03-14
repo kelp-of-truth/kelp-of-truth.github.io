@@ -2,7 +2,7 @@ window.addEventListener("load", () => {
   document.head.innerHTML += `
   <style>
     .particle {
-        position: fixed;
+        position: absolute;
         left: 0px;
         top: 0px;
         width: 50px;
