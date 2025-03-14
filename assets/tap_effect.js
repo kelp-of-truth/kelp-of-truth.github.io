@@ -68,18 +68,20 @@ document.addEventListener("touchstart", (e) => {
   `;
     document.body.appendChild(particle);
     setTimeout(() => {
-      particle.querySelector(".pulse").style.padding = "15px";
-      particle.querySelector(".pulse").style.margin = "-15px";
-      particle.querySelector(".pulse").style.opacity = "0";
-      for (let idx2 of particle.querySelectorAll(".dust")) {
-        idx2.style.rotate = `${idx2.getAttribute("ariaLabel")}deg`;
-        idx2.style.marginLeft = `${
-          Math.cos((idx2.getAttribute("ariaLabel") / 180) * Math.PI) * 30
-        }px`;
-        idx2.style.marginTop = `${
-          -1 * Math.sin((idx2.getAttribute("ariaLabel") / 180) * Math.PI) * 30
-        }px`;
-        idx2.style.opacity = "0";
+      for (particle of document.querySelectorAll(".particle")) {
+        particle.querySelector(".pulse").style.padding = "15px";
+        particle.querySelector(".pulse").style.margin = "-15px";
+        particle.querySelector(".pulse").style.opacity = "0";
+        for (let idx2 of particle.querySelectorAll(".dust")) {
+          idx2.style.rotate = `${idx2.getAttribute("ariaLabel")}deg`;
+          idx2.style.marginLeft = `${
+            Math.cos((idx2.getAttribute("ariaLabel") / 180) * Math.PI) * 30
+          }px`;
+          idx2.style.marginTop = `${
+            -1 * Math.sin((idx2.getAttribute("ariaLabel") / 180) * Math.PI) * 30
+          }px`;
+          idx2.style.opacity = "0";
+        }
       }
     }, 1);
   }
