@@ -249,7 +249,6 @@ header{
     top: 14px;
     rotate: 45deg;
 }
-
 main{
     background-color: var(--back);
 }
@@ -259,6 +258,44 @@ main article{
     margin-left: 20svw;
     padding-bottom: 5rem;
     line-height: 2em;
+}
+main footer{
+    width: 100svw;
+    background-color: var(--f-back);
+    color: var(--b-2);
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 2em;
+}
+main footer a{
+    color: var(--b-2);
+}
+main footer .footer-link{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+main footer .footer-link svg{
+    height: 32px;
+    width: 32px;
+    fill: var(--b-2);
+}
+
+
+
+@media (hover: hover){
+    #scrollbar{
+        display: block;
+    }
+    .h-nav .h-link:has(a:hover)::before{
+        top: calc(100% + 3px);
+        opacity: 1;
+    }
+}
+.h-mobile{
+    display: flex;
+    align-items: center;
 }
 @media screen and (max-width: 100svh) {
     #menu-btn{
