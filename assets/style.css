@@ -260,110 +260,6 @@ main article{
     padding-bottom: 5rem;
     line-height: 2em;
 }
-article .tags{
-    padding-left: 0;
-    margin-left: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    flex-wrap: wrap;
-}
-article .tags .tag{
-    background-color: var(--font);
-    padding: 0.25em;
-    border-radius: 5px;
-    line-height: 1em;
-}
-article .tags .tag a{
-    color: var(--back);
-    text-decoration: none;
-    text-wrap: nowrap;
-}
-main footer{
-    width: 100svw;
-    background-color: var(--f-back);
-    color: var(--b-2);
-    text-align: center;
-    padding-top: 3em;
-    padding-bottom: 2em;
-}
-main footer a{
-    color: var(--b-2);
-}
-main footer .footer-link{
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-}
-main footer .footer-link svg{
-    height: 32px;
-    width: 32px;
-    fill: var(--b-2);
-}
-
-article blockquote{
-    position: relative;
-    padding-left: 1rem;
-    margin-left: 0;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-}
-article blockquote::before{
-    content: "";
-    position: absolute;
-    width: 0.25rem;
-    height: 100%;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    left: 0px;
-    top: -0.25rem;
-    background-color: var(--b-3);
-    border-radius: 0.1rem;
-}
-article table{
-    border-collapse: collapse;
-    max-width: 100%;
-    display: block;
-    overflow-x: scroll;
-}
-article table th,article table td{
-    border: 1px solid var(--font);
-    padding: 0.25rem;
-}
-article img{
-    display: block;
-    max-width: 80%;
-    margin: 10%;
-}
-article code{
-    font-family: Inconsolata;
-    background-color: #91919147;
-    padding: 0.15em;
-    border-radius: 0.3em;
-    margin: 0.15em;
-}
-article code.hljs{
-    outline: 1px solid var(--b-4);
-    border-radius: 10px;
-}
-
-
-
-@media (hover: hover){
-    #scrollbar{
-        display: block;
-    }
-    .h-nav .h-link:has(a:hover)::before{
-        top: calc(100% + 3px);
-        opacity: 1;
-    }
-}
-.h-mobile{
-    display: flex;
-    align-items: center;
-}
 @media screen and (max-width: 100svh) {
     #menu-btn{
         display: inline;
@@ -410,9 +306,5 @@ article code.hljs{
     main article{
         width: 90svw;
         margin-left: 5svw;
-    }
-    main article img{
-        max-width: 90%;
-        margin: 5%;
     }
 }
