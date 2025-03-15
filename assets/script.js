@@ -93,33 +93,3 @@ window.addEventListener("resize",()=>{
 function scrollbar(){
     track.style.top=`${window.scrollY*(window.innerHeight/document.body.clientHeight)}px`;
 }
-for(let idx of document.querySelectorAll("img")){
-    idx.addEventListener("click",()=>{
-        window.open(idx.src,"_blank")
-    })
-}
-
-
-
-
-// let track_start=false;
-// track.addEventListener("mousedown",(e)=>{
-//     track_start=e.pageY;
-//     document.querySelector("#scrollbar #scrolldialog").hidden=false;
-//     document.body.style.userSelect="none";
-// })
-// document.body.addEventListener("mousemove",(e)=>{
-//     if(track_start!==false){
-//         const gap=e.pageY-track_start;
-//         window.scroll(0,window.scrollY+gap);
-//         scrollbar();
-//         track_start=e.pageY;
-//     }
-// })
-// document.body.addEventListener("mouseup",(e)=>{
-//     if(track_start!==false){
-//         document.querySelector("#scrollbar #scrolldialog").hidden=true;
-//         document.body.style.userSelect="all";
-//         track_start=false;
-//     }
-// })
