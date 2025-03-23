@@ -13,6 +13,7 @@ article input[type="button"],article button{
     position: relative;
     transition: border 100ms, outline 100ms;
     cursor: pointer;
+    color: var(--font);
 }
 article input[type="button"].red,article button.red{
     background-color: #ff3333;
