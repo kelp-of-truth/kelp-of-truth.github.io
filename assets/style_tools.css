@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+article input[type="button"] {
+    font-size: 0.9rem !important;
+    vertical-align: middle;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    line-height: 1em;
+    background-color: var(--back);
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    outline: 2px solid rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+    position: relative;
+    transition: border 100ms, outline 100ms;
+    cursor: pointer;
+}
+article input[type="button"].red{
+    background-color: #ff3333;
+    color: var(--back);
+}
+article input[type="button"].green{
+    background-color: #00cc00;
+    color: var(--back);
+}
+article input[type="button"]:active {
+    /* outline: 2px solid rgba(128, 128, 128, 0.2); */
+    border: 2px solid rgba(128, 128, 128, 0.5);
+    outline-width: 2px !important;
+}
+.form-elements input[type="button"]:focus-visible {
+    outline-width: 3px;
+}
+
+article input[type="text"],article input[type="number"],article input[type="url"],article input[type="tel"],article textarea,select{
+    font-size: 0.9rem !important;
+    padding: 0.35em 0.7em;
+    line-height: 1em;
+    background-color: var(--back);
+    border: 2px solid rgba(128, 128, 128, 0.4);
+    border-radius: 10px;
+    position: relative;
+    outline: 0px solid rgba(128, 128, 128, 0.5);
+    transition: outline-width 100ms;
+}
+article input[type="text"]:focus-visible,article input[type="number"]:focus-visible,article input[type="url"]:focus-visible,article input[type="tel"]:focus-visible,article textarea:focus-visible,select:focus-visible {
+    outline-width: 3px;
+}
