@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-article input[type="button"] {
+article input[type="button"],article button{
     font-size: 0.9rem !important;
     vertical-align: middle;
     font-size: 1em;
@@ -14,20 +14,20 @@ article input[type="button"] {
     transition: border 100ms, outline 100ms;
     cursor: pointer;
 }
-article input[type="button"].red{
+article input[type="button"].red,article button.red{
     background-color: #ff3333;
     color: var(--back);
 }
-article input[type="button"].green{
+article input[type="button"].green,article button.green{
     background-color: #00cc00;
     color: var(--back);
 }
-article input[type="button"]:active {
+article input[type="button"]:active,article button:active{
     /* outline: 2px solid rgba(128, 128, 128, 0.2); */
     border: 2px solid rgba(128, 128, 128, 0.5);
     outline-width: 2px !important;
 }
-.form-elements input[type="button"]:focus-visible {
+article input[type="button"]:focus-visible,article button:focus-visible{
     outline-width: 3px;
 }
 
