@@ -3,93 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KelpOfTruth.com - Top</title>
-    <meta name="description" content="真実のこんぶのホームページ">
-    <style id="css-theme"></style>
+    <title>KelpOfTruth.com</title>
+    <link rel="stylesheet" href="./style.css">
     <meta http-equiv="Expires" content="86400">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode,light_mode,search" />
-    <link rel="preload" href="https://kelpoftruth.com/assets/style.css">
-    <link rel="stylesheet" href="https://kelpoftruth.com/assets/style.css">
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/go.min.js"></script>
-    <script async>hljs.highlightAll();</script>
 </head>
-<div id="scrollbar">
-    <div id="scrolltrack"></div>
-    <div id="scrolldialog" hidden></div>
-</div>
-<body hidden>
+<body>
     <header>
-    <div class="div-h">
-        <h1 class="h-title">kelpoftruth.com</h1>
-        <div class="mobile-menu">
-            <button id="menu-btn" class="">
-                <div class="menu-bar"></div>
-                <div class="menu-bar"></div>
-            </button>
+        <div class="title">
+            <h1></h1>
         </div>
-        <div class="h-mobile">
-            <div class="h-nav">
-                <div class="h-link">
-                    <a href="https://kelpoftruth.com/">Top</a>
-                </div>
-                <div class="h-link">
-                    <a href="https://kelpoftruth.com/articles/">Articles</a>
-                </div>
-                <div class="h-link">
-                    <a href="https://kelpoftruth.com/tools/">Tools</a>
-                </div>
-                <div class="h-link">
-                    <a href="https://kelpoftruth.com/contact/">Contact</a>
-                </div>
-            </div>
-            <div class="h-right">
-                <input class="material-symbols-outlined" type="checkbox" id="theme-change">
-                <div class="search">
-                    <label for="search" class="search-icon material-symbols-outlined">search</label>
-                    <div class="search-box">
-                        <input id="search" placeholder="Search" type="text">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+        <nav>
+            <div><a href="#links">LINKS</a></div>
+            <div><a href="#articles">ARTICLES</a></div>
+            <div><a href="#works">WORKS</a></div>
+            <div><a href="#contact">CONTACT</a></div>
+        </nav>
+    </header>
     <main>
-        <article>
-            <h1>Welcome</h1>
-            <p>
-                まだ何もないよ
-            </p>
-        </article>
-        <footer>
-    Email address : <a href="mailto:kelpoftruth@gmail.com">kelpoftruth@gmail.com</a><br>
-    Copyright © 2025 KelpOfTruth All Rights Reserved.
-    <div class="footer-link">
-        <a target="_blank" href="https://twitter.com/kelpoftruth">
-            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/
-            ></svg>
-        </a>
-        <a target="_blank" href="https://youtube.com/@kelpoftruth">
-            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/
-            ></svg>
-        </a>
-        <a target="_blank" href="https://github.com/Kelp-Of-Truth">
-            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/
-                ></svg>
-        </a>
-    </div>
-</footer>
+        <section id="links">
+            <div class="title">
+                <h1>LINKS</h1>
+            </div>
+            <div class="content">
+                <a target="_blank" href="https://twitter.com/kelpoftruth" class="link">
+                    <div class="title">
+                        <svg role="img" fill="#666666" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/></svg>
+                        <span>Twitter - @kelpoftruth</span>
+                    </div>
+                </a>
+                <a target="_blank" href="https://github.com/kelp-of-truth" class="link">
+                    <div class="title">
+                        <svg role="img" fill="#666666" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        <span>GitHub - @kelp-of-truth</span>
+                    </div>
+                </a>
+                <a target="_blank" href="https://https://youtube.com/@kelpoftruth" class="link">
+                    <div class="title">
+                        <svg role="img" fill="#666666" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        <span>YouTube - @kelpoftruth</span>
+                    </div>
+                </a>
+                <a target="_blank" href="https://t3tra.dev/" class="link">
+                    <div class="title">
+                        <img height="48" src="https://t3tra.dev/images/banner_dark.png" alt="banner-t3tra">
+                        <span> - t3tra.dev/</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="articles">
+            <div class="title">
+                <h1>ARTICLES</h1>
+            </div>
+            <div class="content">
+            </div>
+        </section>
+        <section id="works">
+            <div class="title">
+                <h1>WORKS</h1>
+            </div>
+            <div class="content">
+                <a target="_blank" href="https://kelpoftruth.com/tools/binomial_distribution/" class="work">
+                    <div class="title">
+                        <span>二項分布計算ツール</span>
+                        <div class="description">
+                            <p>
+                                二項分布の計算をするツール。
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://kelpoftruth.com/github-pages-dattamono/getfavicon/" class="work">
+                    <div class="title">
+                        <span>Get favicon</span>
+                        <div class="description">
+                            <p>
+                                Webサイトのファビコンを取得するツール。
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://kelpoftruth.com/github-pages-dattamono/XChange/" class="work">
+                    <div class="title">
+                        <span>X to 𝕏 Converter</span>
+                        <div class="description">
+                            <p>
+                                Xを𝕏に置き換えるツール。
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://github.com/kelp-of-truth/kelp-of-truth/blob/main/newtabaudio-haihu.zip" class="work">
+                    <div class="title">
+                        <span>New Tab Audio</span>
+                        <div class="description">
+                            <p>
+                                新しいタブに再生中のメディアを表示するChrome拡張機能。普通に粗悪品。
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://github.com/kelp-of-truth/kelp-of-truth/blob/main/touch_effect.zip" class="work">
+                    <div class="title">
+                        <span>Touch Effect</span>
+                        <div class="description">
+                            <p>
+                                タッチエフェクトを表示するChrome拡張機能。PCに入れられないのに何故かマルチタップに対応している。謎
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://github.com/kelp-of-truth/kelp-of-truth/tree/main/librarys/key-eventjs" class="work">
+                    <div class="title">
+                        <span>key-event.js</span>
+                        <div class="description">
+                            <p>
+                                キーの状態を取得できるライブラリ。別にこれ入れなくても出来る。
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://github.com/kelp-of-truth/kelp-of-truth/tree/main/librarys/color-modeljs" class="work">
+                    <div class="title">
+                        <span>color-model.js</span>
+                        <div class="description">
+                            <p>
+                                動く保証はない。
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="title">
+                <h1>CONTACT</h1>
+            </div>
+            <div class="content">
+                <form target="hidden_iframe" style="margin-top: 0.75rem;" method="post" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSc_SPZJgPyEvLwq6lmvexpr06qj-jhM6LGU1N-WYv2wDaRWnA/formResponse">
+                    <p>
+                        <label for="name">Name</label>
+                        <input name="entry.1513739824" id="name" type="text">
+                    </p>
+                    <p>
+                        <label for="content">Content</label>
+                        <textarea name="entry.1279518855" id="content"></textarea>
+                    </p>
+                    <p>
+                        <button type="submit">Submit</button>
+                    </p>
+                </form>
+        </section>
     </main>
+    <footer>
+        <p>
+            Email address : <a href="mailto:kelpoftruth@gmail.com">kelpoftruth@gmail.com</a><br>
+            Copyright © 2025 KelpOfTruth All Rights Reserved.
+        </p>
+        <div class="footer-link">
+            <a target="_blank" href="https://twitter.com/kelpoftruth">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/
+                ></svg>
+            </a>
+            <a target="_blank" href="https://youtube.com/@kelpoftruth">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/
+                ></svg>
+            </a>
+            <a target="_blank" href="https://github.com/Kelp-Of-Truth">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/
+                    ></svg>
+            </a>
+        </div>
+    </footer>
+    <div id="scrollTop">
+        <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
+        </button>
+    </div>
+    <div id="menu">
+        <button aria-checked="false" id="menuBtn">
+            <div id="bar1"></div>
+            <div id="bar2"></div>
+        </button>
+    </div>
 </body>
-<script src="https://kelpoftruth.com/assets/script.js"></script>
+<script type="text/javascript">let submitted = false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){}"></iframe>
+<script>
+    fetch("https://kelpoftruth.com/articles/rss.xml",{
+        method: "GET"
+    })
+    .then((response)=>{
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.text();
+    })
+    .then((data)=>{
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data, "text/xml");
+        const items = xmlDoc.getElementsByTagName("item");
+        const articlesSection = document.querySelector("#articles .content");
+        for (let i = 0; i < Math.min(5,items.length); i++) {
+            const title = items[i].getElementsByTagName("title")[0].textContent;
+            const link = items[i].getElementsByTagName("link")[0].textContent;
+            const published = String(items[i].getElementsByTagName("published")[0].textContent).split(/ /g);
+            const articleDiv = document.createElement("a");
+            articleDiv.setAttribute("href", link);
+            articleDiv.setAttribute("target", "_blank");
+            articleDiv.classList.add("article");
+            articleDiv.innerHTML = `<div class="title"><span>${title}</span></div><div class="date"><p>${published[0].split(/-/g).join("/")} ${published[1].split(/:/g).splice(1,2).join(":")}</p></div>`;
+            articlesSection.appendChild(articleDiv);
+        }
+    })
+    .catch((error)=>{
+        console.error("Error fetching the RSS feed:", error);
+    });
+    window.addEventListener("load",()=>{
+        const title=`KELPOFTRUTH<br>.COM`;
+function WriteTitle(i){
+  document.querySelector("header .title h1").innerHTML+=title[i];
+  if(title.slice(0,i+1).search(/<br>$/g)!==-1){
+    document.querySelector("header .title h1").innerHTML=document.querySelector("h1").innerHTML.replace(/\&lt\;br\&gt\;/g,"");
+    document.querySelector("header .title h1").appendChild(document.createElement("br"));
+  }
+  setTimeout(()=>{
+    if(i>=title.length-1){
+        document.querySelector("header .title h1").classList.add("notActive");
+        return true
+    };
+    if(window.innerWidth<=540){
+        document.querySelector("header .title h1").innerHTML="KELPOFTRUTH<br>.COM";
+        document.querySelector("header .title h1").classList.add("notActive");
+    }else{
+        WriteTitle(++i);
+    }
+  }, 85)
+}
+WriteTitle(0);
+    })
+    document.addEventListener("scroll",()=>{
+        if(scrollY >= window.innerHeight/2){
+            document.querySelector("#scrollTopBtn").classList.add("active");
+        }else{
+            document.querySelector("#scrollTopBtn").classList.remove("active");
+        }
+        for(let idx of document.querySelectorAll("main section")){
+            if(window.scrollY + window.innerHeight > idx.offsetTop + idx.clientHeight/2){
+                idx.classList.add("visible");
+            }
+        }
+    })
+    document.querySelector("#menuBtn").addEventListener("click",()=>{
+        const checked=document.querySelector("#menuBtn").getAttribute("aria-checked");
+        if(checked==="false"){
+            document.querySelector("#menuBtn").setAttribute("aria-checked","true");
+            document.querySelector("#menuBtn").classList.add("active");
+        }else{
+            document.querySelector("#menuBtn").setAttribute("aria-checked","false");
+            document.querySelector("#menuBtn").classList.remove("active");
+        }
+    })
+</script>
 </html>
