@@ -267,7 +267,7 @@ footer .footer-link{
     margin-top: 64px;
     display: flex;
     flex-direction: row;
-    gap: 64px;
+    gap: 48px;
 }
 footer .footer-link a{
     width: 48px;
