@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF 本棚</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+#file-input {
+    margin: 10px;
+}
+#bookshelf {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 90vh;
+    padding: 10px;
+    gap: 10px;
+}
+.book-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+.book-item img {
+    width: 60px;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+}
+.book-title {
+    font-size: 16px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+.book-title input {
+    font-size: 16px;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+
+<input type="file" id="file-input" accept="application/pdf">
+<div id="bookshelf"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script>
+const fileInput = document.getElementById("file-input");
+const bookshelf = document.getElementById("bookshelf");
+
+// LocalStorageから本棚データを取得
+let books = JSON.parse(localStorage.getItem("bookshelf") || "[]");
+
+// 保存関数
+function saveBooks() {
+    localStorage.setItem("bookshelf", JSON.stringify(books));
+}
+
+// 本棚表示
+function renderBookshelf() {
+    bookshelf.innerHTML = "";
+    books.forEach((book, index) => {
+        const div = document.createElement("div");
+        div.className = "book-item";
+
+        // サムネクリックでビューアに移動
+        const img = document.createElement("img");
+        img.src = book.thumbnail;
+        img.alt = "サムネ";
+        img.addEventListener("click", () => {
+            const url = `viewer.html?file=${encodeURIComponent(book.title)}`;
+            window.location.href = url;
+        });
+
+        // タイトル表示（クリックで編集可能）
+        const titleDiv = document.createElement("div");
+        titleDiv.className = "book-title";
+        titleDiv.textContent = `${book.title} (${book.pages || "?"}ページ)`;
+
+        titleDiv.addEventListener("click", () => {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = book.title;
+            titleDiv.innerHTML = "";
+            titleDiv.appendChild(input);
+            input.focus();
+
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    book.title = input.value.trim() || book.title;
+                    saveBooks();
+                    renderBookshelf();
+                }
+            });
+
+            input.addEventListener("blur", () => {
+                book.title = input.value.trim() || book.title;
+                saveBooks();
+                renderBookshelf();
+            });
+        });
+
+        // 削除ボタン
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.textContent = "削除";
+        deleteBtn.addEventListener("click", () => {
+            if (confirm(`「${book.title}」を本棚から削除してもよろしいですか？`)) {
+                books.splice(index, 1);
+                saveBooks();
+                renderBookshelf();
+            }
+        });
+
+        div.appendChild(img);
+        div.appendChild(titleDiv);
+        div.appendChild(deleteBtn);
+        bookshelf.appendChild(div);
+    });
+}
+
+// PDF追加処理
+async function addBook(file) {
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+        const arrayBuffer = e.target.result;
+        const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+
+        // 1ページ目のサムネイル生成
+        const page = await pdf.getPage(1);
+        const viewport = page.getViewport({ scale: 0.3 });
+        const canvas = document.createElement("canvas");
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+        const thumbnail = canvas.toDataURL();
+
+        // PDFデータをBase64に変換して保存
+        const blob = new Blob([arrayBuffer], { type: "application/pdf" });
+        const reader2 = new FileReader();
+        reader2.onload = () => {
+            const base64Data = reader2.result; // data:application/pdf;base64,...
+            books.push({
+                title: file.name,
+                thumbnail: thumbnail,
+                pages: pdf.numPages,
+                data: base64Data
+            });
+            saveBooks();
+            renderBookshelf();
+        };
+        reader2.readAsDataURL(blob);
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+// ファイル選択
+fileInput.addEventListener("change", e => {
+    const file = e.target.files[0];
+    if (file && file.type === "application/pdf") {
+        addBook(file);
+    }
+});
+
+// 初期表示
+renderBookshelf();
+</script>
+
+</body>
+</html>
