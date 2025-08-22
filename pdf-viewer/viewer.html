@@ -3,91 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PDF 右→左スクロールビューア</title>
+<title>PDF ビューア（IndexedDB版）</title>
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
+body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
 #pdf-container {
-    display: flex;
-    flex-direction: row-reverse;  /* 右から左 */
-    overflow-x: auto;             /* 横スクロール */
+    display:flex;
+    flex-direction: row-reverse;
+    overflow-x:auto;
     scroll-snap-type: x mandatory;
-    width: 100vw;
-    height: 100vh;
-    gap: 10px;
+    width:100vw;
+    height:100vh;
+    gap:10px;
 }
 .pdf-page {
-    flex: 0 0 100%;               /* 1ページ1画面 */
-    width: 100%;                  /* 画面横幅に合わせる */
-    height: auto;                 /* アスペクト比維持 */
-    scroll-snap-align: start;
-    object-fit: contain;
+    flex:0 0 100%; width:100%; height:auto;
+    scroll-snap-align:start; object-fit:contain;
 }
 </style>
 </head>
 <body>
-
 <div id="pdf-container"></div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
+function openDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open("BookshelfDB", 1);
+        request.onsuccess = e => resolve(e.target.result);
+        request.onerror = e => reject(e.target.error);
+    });
+}
+
+function getBookById(id) {
+    return new Promise(async (resolve, reject) => {
+        const db = await openDB();
+        const tx = db.transaction("books","readonly");
+        const store = tx.objectStore("books");
+        const request = store.get(id);
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = e => reject(e.target.error);
+    });
+}
+
 const container = document.getElementById("pdf-container");
+const id = new URLSearchParams(window.location.search).get("id");
+if(!id) alert("IDが指定されていません");
 
-// PDFレンダリング関数
-async function renderPDF(pdfData) {
-    container.innerHTML = '';
-    const pdf = await pdfjsLib.getDocument(pdfData).promise;
+window.addEventListener('DOMContentLoaded', async ()=>{
+    const book = await getBookById(id);
+    if(!book || !book.data) return alert("PDFが見つかりません");
 
-    for (let i = 1; i <= pdf.numPages; i++) {
+    const pdf = await pdfjsLib.getDocument(book.data).promise;
+    for(let i=1;i<=pdf.numPages;i++){
         const page = await pdf.getPage(i);
-        const viewport = page.getViewport({ scale: 2 });
-
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
+        const viewport = page.getViewport({scale:2});
+        const canvas = document.createElement("canvas");
         canvas.width = viewport.width;
         canvas.height = viewport.height;
-
-        await page.render({ canvasContext: context, viewport }).promise;
-
+        await page.render({canvasContext:canvas.getContext("2d"),viewport}).promise;
         const img = new Image();
         img.src = canvas.toDataURL();
         img.className = "pdf-page";
         container.appendChild(img);
     }
-}
+// row-reverse の場合、左端にスクロール
+    container.scrollLeft = container.scrollWidth;
 
-// クエリパラメータ取得
-function getQueryParam(name) {
-    const params = new URLSearchParams(window.location.search);
-    return params.get(name);
-}
-
-// ページ読み込み時にクエリからPDFを取得して表示
-window.addEventListener('DOMContentLoaded', () => {
-    const fileName = getQueryParam('file'); // viewer.html?file=XXX
-    if (fileName) {
-        const books = JSON.parse(localStorage.getItem("bookshelf") || "[]");
-        const book = books.find(b => b.title === fileName);
-        console.log(book)
-        if (book && book.data) {
-            // Base64 → ArrayBuffer に変換
-            const binary = atob(book.data.split(',')[1]);
-            const len = binary.length;
-            const buffer = new ArrayBuffer(len);
-            const view = new Uint8Array(buffer);
-            for (let i = 0; i < len; i++) {
-                view[i] = binary.charCodeAt(i);
-            }
-            renderPDF(buffer);
-        } else {
-            console.log("指定されたPDFデータが見つかりません。");
-        }
-    }
 });
 </script>
-
 </body>
 </html>
