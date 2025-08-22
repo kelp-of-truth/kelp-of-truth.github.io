@@ -19,6 +19,7 @@ body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
     transform: scaleX(-1); /* 見た目右→左 */
 }
 .pdf-page {
+    margin-bottom:auto;
     flex:0 0 100%;
     width:100%;
     height:auto;
@@ -203,7 +204,10 @@ function scrollToPage(pageNum){
     if(pageNum>totalPages) pageNum=totalPages;
     const pageElem = pagesRendered[pageNum-1];
     if(pageElem){
-        container.scrollLeft = pageElem.offsetLeft;
+        // ページ中央を画面中央に合わせる
+        const pageCenter = pageElem.offsetLeft + pageElem.offsetWidth / 2;
+        const containerCenter = container.clientWidth / 2;
+        container.scrollLeft = pageCenter - containerCenter;
     }
 }
 
