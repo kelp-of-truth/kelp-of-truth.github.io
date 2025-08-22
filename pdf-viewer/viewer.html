@@ -6,25 +6,101 @@
 <title>PDF Viewer</title>
 <style>
 body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
+
+/* PDFコンテナ */
 #pdf-container {
     display:flex;
-    flex-direction: row-reverse;
+    flex-direction:row;
     overflow-x:auto;
     scroll-snap-type: x mandatory;
     width:100vw;
     height:100vh;
     gap:10px;
+    transform: scaleX(-1); /* 見た目右→左 */
 }
 .pdf-page {
-    flex:0 0 100%; width:100%; height:auto;
-    scroll-snap-align:start; object-fit:contain;
+    flex:0 0 100%;
+    width:100%;
+    height:auto;
+    scroll-snap-align:start;
+    object-fit:contain;
+    transform: scaleX(-1); /* ページも反転して正しく表示 */
+}
+
+/* ステータスバー */
+#status-bar {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    font-size:14px;
+    padding:4px 10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-sizing:border-box;
+}
+#bookmark-btn {
+    cursor:pointer;
+    background:#3498db;
+    color:white;
+    border:none;
+    padding:2px 6px;
+    border-radius:4px;
+}
+
+/* ローディング */
+#loading {
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    flex-direction:column;
+    color:white;
+    font-size:20px;
+}
+.loader {
+    margin-top:20px;
+    width:40px;
+    height:40px;
+    border:5px solid rgba(255,255,255,0.2);
+    border-top-color:white;
+    border-radius:50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform:rotate(0deg); }
+    100% { transform:rotate(360deg); }
 }
 </style>
 </head>
 <body>
+
+<div id="loading">
+    PDFを読み込み中…
+    <div class="loader"></div>
+</div>
+
 <div id="pdf-container"></div>
+
+<div id="status-bar">
+    <span id="page-info">0 / 0</span>
+    <button id="bookmark-btn">しおり</button>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
+const container = document.getElementById("pdf-container");
+const pageInfo = document.getElementById("page-info");
+const bookmarkBtn = document.getElementById("bookmark-btn");
+const loadingDiv = document.getElementById("loading");
+
 function openDB() {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open("BookshelfDB", 1);
@@ -44,32 +120,118 @@ function getBookById(id) {
     });
 }
 
-const container = document.getElementById("pdf-container");
-const id = new URLSearchParams(window.location.search).get("id");
-if(!id) alert("IDが指定されていません");
+function saveBookmark(bookId, page) { localStorage.setItem(`bookmark_${bookId}`, page); }
+function getBookmark(bookId) {
+    const page = parseInt(localStorage.getItem(`bookmark_${bookId}`));
+    return isNaN(page) ? null : page;
+}
+function saveLastPage(bookId, page) { localStorage.setItem(`lastpage_${bookId}`, page); }
+function getLastPage(bookId) {
+    const page = parseInt(localStorage.getItem(`lastpage_${bookId}`));
+    return isNaN(page) ? 1 : page;
+}
 
-window.addEventListener('DOMContentLoaded', async ()=>{
-    const book = await getBookById(id);
-    if(!book || !book.data) return alert("PDFが見つかりません");
+const bookId = new URLSearchParams(window.location.search).get("id");
+if(!bookId) alert("IDが指定されていません");
 
-    const pdf = await pdfjsLib.getDocument(book.data).promise;
-    for(let i=1;i<=pdf.numPages;i++){
-        const page = await pdf.getPage(i);
-        const viewport = page.getViewport({scale:2});
-        const canvas = document.createElement("canvas");
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        await page.render({canvasContext:canvas.getContext("2d"),viewport}).promise;
-        const img = new Image();
-        img.src = canvas.toDataURL();
-        img.className = "pdf-page";
-        container.appendChild(img);
+let pdfDoc = null;
+let pagesRendered = [];
+let totalPages = 0;
+let currentPage = 1;
+
+async function renderPDF() {
+    loadingDiv.style.display = "flex";
+
+    const book = await getBookById(bookId);
+    if(!book || !book.data) {
+        loadingDiv.style.display = "none";
+        return alert("PDFが見つかりません");
     }
-// row-reverse の場合、左端にスクロール
-    container.scrollLeft = container.scrollWidth;
 
+    document.title = `PDF Viewer - ${book.title}`;
+    pdfDoc = await pdfjsLib.getDocument(book.data).promise;
+    totalPages = pdfDoc.numPages;
+    container.innerHTML = "";
+    pagesRendered = [];
+
+    const bookmarkPage = getBookmark(bookId);
+    const lastPage = getLastPage(bookId);
+    const startPage = bookmarkPage || lastPage || 1;
+
+    // しおりページまで描画
+    for(let i=1;i<=startPage;i++){
+        await renderPage(i);
+    }
+
+    scrollToPage(startPage);
+    updatePage();
+
+    // 残りページを順次描画
+    renderRemainingPages(startPage+1);
+
+    loadingDiv.style.display = "none";
+}
+
+async function renderPage(pageNum){
+    const page = await pdfDoc.getPage(pageNum);
+    const viewport = page.getViewport({scale:2});
+    const canvas = document.createElement("canvas");
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    await page.render({canvasContext: canvas.getContext("2d"), viewport}).promise;
+    const img = new Image();
+    img.src = canvas.toDataURL();
+    img.className = "pdf-page";
+    container.appendChild(img);
+    pagesRendered.push(img);
+}
+
+function renderRemainingPages(startPage){
+    let current = startPage;
+    function next(){
+        if(current>totalPages) return;
+        renderPage(current).then(()=>{
+            current++;
+            setTimeout(next,0); // setTimeoutで順次描画
+        });
+    }
+    next();
+}
+
+function scrollToPage(pageNum){
+    if(pageNum<1) pageNum=1;
+    if(pageNum>totalPages) pageNum=totalPages;
+    const pageElem = pagesRendered[pageNum-1];
+    if(pageElem){
+        container.scrollLeft = pageElem.offsetLeft;
+    }
+}
+
+function updatePage(){
+    const containerCenter = container.scrollLeft + container.clientWidth/2;
+    let closestIndex = 0;
+    let minDist = Infinity;
+    pagesRendered.forEach((page,index)=>{
+        const pageCenter = page.offsetLeft + page.offsetWidth/2;
+        const dist = Math.abs(pageCenter - containerCenter);
+        if(dist < minDist){
+            minDist = dist;
+            closestIndex = index;
+        }
+    });
+    currentPage = closestIndex+1;
+    pageInfo.textContent = `${currentPage} / ${totalPages}`;
+    saveLastPage(bookId, currentPage);
+}
+
+container.addEventListener("scroll", updatePage);
+
+bookmarkBtn.addEventListener("click", ()=>{
+    saveBookmark(bookId, currentPage);
+    alert(`ページ ${currentPage} をしおりに保存しました`);
 });
+
+window.addEventListener("DOMContentLoaded", renderPDF);
 </script>
 </body>
-
 </html>
