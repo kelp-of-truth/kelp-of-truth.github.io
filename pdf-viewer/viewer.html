@@ -6,6 +6,7 @@
 <title>PDF Viewer</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="shortcut icon" href="icon.png" type="image/png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
 ::-webkit-scrollbar{
@@ -243,7 +244,9 @@ async function renderPDF() {
         await renderPage(i);
     }
 
-    scrollToPage(startPage);
+    setTimeout(() => {
+        scrollToPage(startPage);
+    }, 0);
     updatePage();
 
     // 残りページを順次描画
