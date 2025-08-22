@@ -5,16 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PDF Viewer</title>
 <style>
+::-webkit-scrollbar{
+    display: none;
+}
+
 body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
 
 /* PDFコンテナ */
 #pdf-container {
+    position: absolute;
     display:flex;
     flex-direction:row;
     overflow-x:auto;
     scroll-snap-type: x mandatory;
     width:100vw;
-    height:100vh;
+    height:fit-content;
+    top: 0px;
+    bottom: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
     gap:10px;
     transform: scaleX(-1); /* 見た目右→左 */
 }
@@ -35,13 +44,26 @@ body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
     left:0;
     width:100%;
     background:rgba(0,0,0,0.6);
-    color:white;
-    font-size:14px;
-    padding:4px 10px;
+    color:#fff;
+    font-size:16px;
+    padding:8px 10px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     box-sizing:border-box;
+}
+/* メニューバー */
+#menu{
+    position:fixed;
+    top:0px; left:0px;
+    width:100%;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    padding:8px 10px;
+    color: #fff;
 }
 #bookmark-btn {
     cursor:pointer;
@@ -50,6 +72,7 @@ body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
     border:none;
     padding:2px 6px;
     border-radius:4px;
+    font-size: 16px;
 }
 
 /* ローディング */
@@ -79,9 +102,48 @@ body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
     0% { transform:rotate(0deg); }
     100% { transform:rotate(360deg); }
 }
+#popup {
+    position:fixed;
+    top:0; left:0;bottom: 0; right:0;
+    margin: auto;
+    width:256px; height:256px;
+    background:rgba(0,0,0,0.8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:2;
+    color:white;
+    pointer-events: none;
+    flex-direction: column;
+    border-radius: 16px;
+    transition: opacity 250ms ease-out;
+    opacity: 0;
+}
+#popup p {
+    margin-top: 16px;
+    text-align: center;
+    margin-left: 16px;
+    margin-right: 16px;
+}
 </style>
 </head>
 <body>
+
+<div id="menu">
+    <button style="background-color: transparent;position: absolute;left: 10px;border: unset;" id="back-shelf">
+        <svg title="一覧にもどる" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="size-6" width="24" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+    </button>
+    <span id="title"></span>
+</div>
+
+<div id="popup">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" width="128" height="128">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+    </svg>
+    <p>しおりをはさみました</p>
+</div>
 
 <div id="loading">
     PDFを読み込み中…
@@ -92,11 +154,21 @@ body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
 
 <div id="status-bar">
     <span id="page-info">0 / 0</span>
-    <button id="bookmark-btn">しおり</button>
+    <button id="bookmark-btn">
+        <svg style="height: 1.2em;vertical-align:-0.2em;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+        </svg>
+        しおりをはさむ
+    </button>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
+
+document.querySelector("#back-shelf").addEventListener("click", () => {
+    window.location.href = "./shelf.html";
+});
+
 const container = document.getElementById("pdf-container");
 const pageInfo = document.getElementById("page-info");
 const bookmarkBtn = document.getElementById("bookmark-btn");
@@ -150,6 +222,7 @@ async function renderPDF() {
     }
 
     document.title = `PDF Viewer - ${book.title}`;
+    document.getElementById("title").textContent = book.title;
     pdfDoc = await pdfjsLib.getDocument(book.data).promise;
     totalPages = pdfDoc.numPages;
     container.innerHTML = "";
@@ -232,7 +305,12 @@ container.addEventListener("scroll", updatePage);
 
 bookmarkBtn.addEventListener("click", ()=>{
     saveBookmark(bookId, currentPage);
-    alert(`ページ ${currentPage} をしおりに保存しました`);
+    document.querySelector("#popup p").innerHTML = `${currentPage}ページ目に<br>しおりをはさみました`;
+    document.querySelector("#popup").style.opacity = "1";
+    setTimeout(() => {
+        document.querySelector("#popup").style.opacity = "0";
+    }, 2000);
+    // alert(`ページ ${currentPage} をしおりに保存しました`);
 });
 
 window.addEventListener("DOMContentLoaded", renderPDF);
