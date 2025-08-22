@@ -1,5 +1,13 @@
 {
     "start_url": "/",
     "scope": "/",
-    "display": "standalone"
+    "display": "standalone",
+    "icons":[
+        {
+            "purpose": "any",
+            "src": "/icon.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        }
+    ]
 }
