@@ -4,12 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PDF Viewer</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
 ::-webkit-scrollbar{
     display: none;
 }
-
-body { margin:0; font-family:Arial,sans-serif; overflow:hidden; }
+@font-face {
+    font-family: "IBMPlexSansJP";
+    src: url("./IBMPlexSansJP-Regular.woff2") format("woff2");
+}
+body { margin:0; font-family: "IBMPlexSansJP", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Noto Sans JP" , sans-serif; }
 
 /* PDFコンテナ */
 #pdf-container {

@@ -7,8 +7,12 @@
 <link rel="manifest" href="/manifest.json">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
-body { margin:0; font-family: Arial,sans-serif; }
-#file-input { margin:10px; }
+@font-face {
+    font-family: "IBMPlexSansJP";
+    src: url("./IBMPlexSansJP-Regular.woff2") format("woff2");
+}
+body { margin:0; font-family: "IBMPlexSansJP", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Noto Sans JP" , sans-serif; }
+#file-input { margin:10px; display:none; }
 #bookshelf {
     display:flex;
     flex-direction:column;
@@ -22,10 +26,12 @@ body { margin:0; font-family: Arial,sans-serif; }
     align-items:center;
     gap:10px;
     border:1px solid #ccc;
-    padding:8px;
+    padding:12px;
+    border-radius: 8px;
 }
 .book-item img {
     width:60px;
+    max-height: 100px;    
     height:auto;
     object-fit:contain;
     cursor:pointer;
@@ -41,8 +47,13 @@ body { margin:0; font-family: Arial,sans-serif; }
 </head>
 <body>
 
-<input type="file" id="file-input" accept="application/pdf">
+<input type="file" tabindex="-1" id="file-input" accept="application/pdf">
 <div id="bookshelf"></div>
+<label style="background-color:#ccc;position: fixed;  display: flex; justify-content: center; padding: 8px 0px; height: fit-content; width:95%;margin-left: 2.5%;border-radius: 8px;" tabindex="0" for="file-input">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#666666" class="size-6" width="36" height="36">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+    </svg>
+</label>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script>
@@ -138,7 +149,7 @@ async function renderBookshelf() {
 
         const deleteBtn = document.createElement("button");
         deleteBtn.className = "delete-btn";
-        deleteBtn.textContent = "削除";
+        deleteBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="size-6" width="24px" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>`;
         deleteBtn.addEventListener("click", async () => {
             if(confirm(`「${book.title}」を削除しますか？`)) {
                 await deleteBook(book.id);
