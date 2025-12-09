@@ -94,6 +94,7 @@ header{
     width: 5em;
     text-align: center;
 }
+/**
 .h-nav .h-link::before{
     content: "";
     position: absolute;
@@ -113,7 +114,7 @@ header{
 .h-nav .h-link:has(a:focus)::before{
     top: calc(100% + 3px);
     opacity: 1;
-}
+} **/
 .h-nav .h-link a{
     text-decoration: unset;
 }
