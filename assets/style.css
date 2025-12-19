@@ -255,8 +255,9 @@ main{
 }
 main article{
     min-height: 100svh;
-    width: 40svw;
-    margin-left: 30svw;
+    width: 630px;
+    margin-left: auto;
+    margin-right: auto;
     padding-bottom: 5rem;
     line-height: 2em;
 }
