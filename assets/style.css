@@ -1,5 +1,5 @@
 @charset "utf-8";
-@font-face {
+/* @font-face {
     font-family: "Corporate-Logo-Medium";
     src: url("https://kelpoftruth.com/assets/Corporate-Logo-Medium-ver3.otf");
 }
@@ -7,7 +7,7 @@
     font-family: "Corporate-Logo-Bold";
     font-weight: bold;
     src: url("https://kelpoftruth.com/assets/Corporate-Logo-Bold-ver3.otf");
-}
+} */
 html{
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
@@ -255,8 +255,8 @@ main{
 }
 main article{
     min-height: 100svh;
-    width: 60svw;
-    margin-left: 20svw;
+    width: 40svw;
+    margin-left: 30svw;
     padding-bottom: 5rem;
     line-height: 2em;
 }
